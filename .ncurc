@@ -1,0 +1,10 @@
+module.exports = {
+  reject: [
+    'npm',
+    // Remove these when Storybook gets updated to the latest version
+    '@storybook/addon-docs',
+    '@storybook/addon-a11y',
+    'eslint-plugin-storybook',
+    'storybook-addon-pseudo-states'
+  ]
+};

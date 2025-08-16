@@ -1,0 +1,215 @@
+/* =================================================== */
+/* Storybook → DOCS */
+
+/* -------------------------| Base */
+#storybook-docs {
+  padding: var(--mev-size-200x600);
+}
+
+/* -------------------------| Wrapper */
+.sbdocs.sbdocs-wrapper {
+  display: flex;
+  flex: 1;
+  gap: 3rem;
+  justify-content: center;
+
+  box-sizing: border-box;
+  min-height: 100% !important;
+  padding: 0 !important;
+
+  background: inherit;
+}
+
+/* -------------------------| Content */
+.sbdocs.sbdocs-content {
+  max-width: none !important;
+  margin: 0 auto;
+}
+
+.sbdocs.sbdocs-content > :where(h1, h2, h3, h4, h5, h6),
+.sb-anchor > :where(h1, h2, h3, h4, h5, h6),
+.sbdocs-title {
+  font-family: inherit;
+  font-weight: 800;
+  line-height: var(--mev-line-height-120);
+  color: inherit;
+}
+
+.sbdocs.sbdocs-content > :where(h1, h2, h3, h4, h5, h6):not(:first-child),
+.sb-anchor > :where(h1, h2, h3, h4, h5, h6):not(:first-child),
+.sbdocs-title:not(:first-child) {
+  margin-block-start: 2em;
+}
+
+.sbdocs.sbdocs-content > :where(h1, h2, h3, h4, h5, h6):not(:last-child),
+.sb-anchor > :where(h1, h2, h3, h4, h5, h6):not(:last-child),
+.sbdocs-title:not(:last-child) {
+  margin-block-end: 1em;
+}
+
+.sbdocs.sbdocs-content > h1,
+.sb-anchor > h1,
+h1.sbdocs-title {
+  font-size: var(--mev-font-size-display);
+}
+
+.sbdocs.sbdocs-content > h2,
+.sb-anchor > h2,
+h2.sbdocs-title {
+  font-size: var(--mev-font-size-head);
+}
+
+.sbdocs.sbdocs-content > h2 {
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.sbdocs.sbdocs-content > h3,
+.sb-anchor > h3,
+h3.sbdocs-title {
+  font-size: var(--mev-font-size-subtitle);
+}
+
+h4.sbdocs-title {
+  font-size: var(--mev-font-size-accent);
+}
+
+/* -------------------------| Preview */
+.sbdocs.sbdocs-preview {
+  border-color: var(--mev-color-background-gray-weak);
+  background-color: var(--mev-color-background-primary-base);
+}
+
+.sbdocs.sbdocs-preview .sb-bar {
+  background-color: var(--mev-color-background-gray-weakest);
+}
+
+.sbdocs.sbdocs-preview .sb-bar button:hover,
+.sbdocs.sbdocs-preview .sb-bar button:active,
+.sbdocs.sbdocs-preview .sb-bar button.pseudo-active,
+.pseudo-active-all .sbdocs.sbdocs-preview .sb-bar button {
+  color: rgb(234, 100, 61);
+  background-color: rgba(234, 100, 61, 0.14);
+}
+
+.sbdocs.sbdocs-preview .sb-bar button:focus,
+.sbdocs.sbdocs-preview .sb-bar button.pseudo-focus,
+.pseudo-focus-all .sbdocs.sbdocs-preview .sb-bar button {
+  box-shadow: rgb(234, 100, 61) 0px 0px 0px 1px inset;
+}
+
+.sbdocs.sbdocs-preview pre.prismjs {
+  background: var(--mev-color-primitive-gray20);
+}
+
+/* "Hide/Show code" & "Copy" Buttons */
+/* Parents */
+.sbdocs.sbdocs-preview .docs-story + div :has(> button),
+.sbdocs.sbdocs-preview .docs-story > div:nth-child(2) {
+  background: none;
+}
+
+/* Both buttons */
+.sbdocs.sbdocs-preview .docblock-code-toggle,
+.sbdocs.sbdocs-preview .docs-story + div button {
+  border-radius: 4px 0 0 0;
+
+  font-family: inherit;
+  font-size: var(--mev-font-size-script);
+  font-weight: var(--mev-font-weight-regular);
+  color: var(--mev-color-primitive-white);
+
+  background-color: var(--mev-color-primitive-gray20);
+}
+
+.sbdocs.sbdocs-preview .docblock-code-toggle:hover,
+.sbdocs.sbdocs-preview .docs-story + div button:hover {
+  color: var(--mev-color-primitive-red90);
+}
+
+.sbdocs.sbdocs-preview .docblock-code-toggle:focus,
+.sbdocs.sbdocs-preview .docs-story + div button:focus {
+  box-shadow: none;
+}
+
+/* "Hide/Show code" Button */
+.sbdocs.sbdocs-preview .docblock-code-toggle {
+  border-color: var(--mev-color-primitive-gray20);
+}
+
+/* "Copy" Button */
+.sbdocs.sbdocs-preview .docs-story + div button {
+  border-color: var(--mev-color-primitive-gray40);
+}
+
+/* -------------------------| Icon gallery */
+.docblock-icongallery {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  margin-block-start: var(--mev-size-500x600) !important;
+}
+
+.docblock-icongallery > div {
+  color: var(--mev-color-content-primary-base);
+}
+
+.docblock-icongallery > div * {
+  color: inherit;
+}
+
+.docblock-icongallery > div > div:first-child {
+  border: 1px solid var(--mev-color-background-gray-weak);
+  background-color: var(--mev-color-background-primary-base);
+}
+
+.docblock-icongallery > div > div:last-child {
+  user-select: all;
+  font-family: var(--mev-font-family-sans);
+  white-space: nowrap;
+}
+
+.docblock-icongallery i {
+  font-family: 'Iconography', system-ui;
+}
+
+/* -------------------------| Table of arguments */
+div:has(> table.docblock-argstable) {
+  overflow: auto;
+  border: 1px solid var(--mev-border-color-gray-weak);
+  border-radius: var(--mev-border-radius-four);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
+}
+
+table.docblock-argstable {
+  width: 100% !important;
+  margin: 0 !important;
+  font-family: var(--mev-font-family-sans);
+}
+
+table.docblock-argstable thead.docblock-argstable-head th button:hover,
+table.docblock-argstable thead.docblock-argstable-head th button:active,
+table.docblock-argstable thead.docblock-argstable-head th button.pseudo-active {
+  color: rgb(234, 100, 61);
+  background-color: rgba(234, 100, 61, 0.14);
+}
+
+table.docblock-argstable thead.docblock-argstable-head th button:focus,
+table.docblock-argstable thead.docblock-argstable-head th button.pseudo-focus {
+  box-shadow: rgb(234, 100, 61) 0px 0px 0px 1px inset;
+}
+
+table.docblock-argstable tbody.docblock-argstable-body > tr > :first-of-type {
+  border-left: 0;
+}
+
+table.docblock-argstable tbody.docblock-argstable-body > tr > :last-of-type {
+  border-right: 0;
+}
+
+table.docblock-argstable tr:first-of-type > td:first-of-type,
+table.docblock-argstable tr:first-of-type > td:last-of-type {
+  border-radius: 0 !important;
+}
+
+table.docblock-argstable tbody.docblock-argstable-body > tr:first-of-type > * {
+  border-block-start: 1px solid var(--mev-border-color-gray-weak);
+}

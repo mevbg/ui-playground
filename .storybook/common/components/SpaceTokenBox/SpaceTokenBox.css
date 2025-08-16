@@ -1,0 +1,34 @@
+.space-token-box {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  min-height: 10rem;
+  border: 1px solid var(--mev-color-content-primary-inverted);
+  border-radius: var(--tile-card-border-radius);
+
+  background-color: #f9cc9e;
+}
+
+.space-token-box__content {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  background-color: #c5dfb9;
+}
+
+.space-token-box__content-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: var(--mev-size-150x200);
+
+  color: var(--mev-color-content-primary-base);
+
+  background-color: var(--mev-color-background-primary-base);
+}

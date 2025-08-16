@@ -1,0 +1,117 @@
+/* =================================================== *|
+/* Storybook → DOCBLOCK */
+
+/* -------------------------| Table */
+table.docblock-argstable {
+  font-family: Apparat, system-ui, 'sans-serif';
+
+  span[title='Required'] {
+    position: absolute;
+    top: 0.6em;
+    left: 0.4em;
+
+    display: inline-block;
+
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+
+  td:has(> span[title='Required']) {
+    position: relative;
+  }
+}
+
+table.docblock-argstable thead.docblock-argstable-head th {
+  color: var(--mev-color-content-gray-strong);
+}
+
+table.docblock-argstable tbody.docblock-argstable-body tr > * {
+  border-top-color: var(--mev-border-color-gray-weak);
+  color: var(--mev-color-content-primary-base);
+}
+
+table.docblock-argstable tbody.docblock-argstable-body tr > * {
+  background: transparent;
+}
+
+html.light table.docblock-argstable {
+  background: var(--mev-color-background-primary-base);
+}
+
+html.dark table.docblock-argstable {
+  background: var(--mev-color-background-gray-weakest);
+}
+
+table.docblock-argstable tbody.docblock-argstable-body tr[title*='items'] td span {
+  color: var(--mev-color-content-primary-base) !important;
+}
+
+table.docblock-argstable tbody.docblock-argstable-body tr[title*='items'] td svg {
+  color: currentColor;
+}
+
+html.light table.docblock-argstable tbody.docblock-argstable-body tr[title*='items'] td {
+  background: var(--mev-color-background-gray-weakest) !important;
+}
+
+html.dark table.docblock-argstable tbody.docblock-argstable-body tr[title*='items'] td {
+  background: rgb(34, 36, 37) !important;
+}
+
+/* -------------------------| Body */
+table.docblock-argstable {
+  textarea,
+  select,
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='search'],
+  input[placeholder='Choose color...'] {
+    border: min(1px, 0.1rem) solid var(--mev-border-color-gray-weak);
+    border-radius: 0;
+
+    color: inherit;
+
+    background: var(--mev-color-background-primary-base);
+    box-shadow: none;
+
+    &:focus {
+      border-color: var(--mev-border-color-red);
+      box-shadow: none;
+    }
+  }
+
+  label:has(> input[role='switch']) {
+    padding: 0.2rem;
+  }
+
+  input[role='switch'] {
+    border: var(--mev-border-width-base) solid transparent;
+  }
+
+  input[role='switch']:focus {
+    border-color: var(--mev-border-color-red);
+    box-shadow: none !important;
+  }
+
+  input[role='switch'] ~ span {
+    color: var(--mev-color-content-gray-strong);
+  }
+
+  input[role='switch']:not(:checked) ~ span:first-of-type,
+  input[role='switch']:checked ~ span:last-of-type {
+    color: inherit;
+    background-color: var(--mev-color-background-primary-base);
+  }
+}
+
+html.light table.docblock-argstable label:has(> input[role='switch']) {
+  background-color: var(--mev-color-background-gray-weakest);
+}
+
+html.dark table.docblock-argstable label:has(> input[role='switch']) {
+  background-color: var(--mev-color-background-gray-weak);
+}

@@ -1,0 +1,36 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="bg" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+<meta name="application-name" content="Mev’s UI Playground" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E8633C" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#E8633C" />
+<meta name="msapplication-TileColor" content="#E8633C" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Mev’s UI Playground" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180x180.png" />
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<link rel="stylesheet" href="/assets/tokens/css/all.css" />
+<link rel="stylesheet" href="/assets/css/font-faces.css" />
+<link rel="stylesheet" href="/assets/css/viewport-scaler.css" />
+<link rel="stylesheet" href="/assets/css/icons.css" />
+<link rel="stylesheet" href="/styles/common/docblock.css" />
+<link rel="stylesheet" href="/styles/manager/scaffolding.css" />
+
+<!-- Set document title -->
+<script>
+  let observer = new MutationObserver(function (mutations) {
+    if (document.title.match(/Storybook$/)) {
+      document.title = document.title.replace('Storybook', 'Playground Design System');
+    }
+  }).observe(document.querySelector('title'), {
+    childList: true,
+    subtree: true,
+    characterData: true
+  });
+</script>

@@ -1,0 +1,14 @@
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 31rem));
+  gap: max(1rem, var(--mev-size-250x300));
+  justify-content: start;
+}
+
+@media (max-width: 699px) {
+  .tile-grid {
+    grid-template-columns: 1fr;
+    gap: var(--mev-size-300x400);
+    justify-content: stretch;
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "name": "@mevbg/ui-playground",
+  "title": "Mev’s UI Playground",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "homepage": "https://nuxt.mev.bg",
+  "owner": "Mev",
+  "author": {
+    "name": "Martin Metodiev",
+    "email": "martin@mev.bg",
+    "url": "https://metodiev.bg"
+  },
+  "description": "Mev’s personal UI playground",
+  "keywords": [
+    "nuxt",
+    "scaffolding",
+    "mev"
+  ],
+  "themeColor": "#E8633C",
+  "private": true,
+  "type": "module",
+  "browserslist": [
+    "> 0.5% and last 3 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "dev": "nuxt dev & npm run open:app & npm run open:storybook",
+    "generate:ssl": "del-cli .ssl && mkdir .ssl && cd .ssl && mkcert development.playground.mev.bg && cd ..",
+    "lint:prettier": "prettier --check .",
+    "lint:scripts": "echo \"\\033[93mLinting scripts…\" && eslint --ext \".js,.vue\" . && echo \"\\033[92mNo errors were found in the scripts.\" && echo \"\\033[39m\"",
+    "lint:styles": "echo \"\\033[95mLinting styles…\" && stylelint --fix \"**/*.{css,vue}\" && echo \"\\033[92mNo errors were found in the styles.\" && echo \"\\033[39m\"",
+    "lint:all": "npm run lint:scripts && npm run lint:styles && npm run lint:prettier",
+    "prettify": "prettier --write .",
+    "clean:cache": "del-cli node_modules/.cache .stylelintcache",
+    "clean:dist": "del-cli .output storybook-static",
+    "clean:assets": "del-cli .nuxt public/assets",
+    "clean:dist+cache": "npm run clean:dist & npm run clean:cache",
+    "clean:all": "npm run clean:cache & npm run clean:dist & npm run clean:assets",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "storybook:dev": "storybook dev -p 6006 --host development.playground.mev.bg --https --ssl-cert ./.ssl/development.playground.mev.bg.pem --ssl-key ./.ssl/development.playground.mev.bg-key.pem --no-open & npm run open:storybook",
+    "storybook:build": "storybook build",
+    "open:app": "wait-on https://development.playground.mev.bg:3000 && open -a 'Google Chrome' https://development.playground.mev.bg:3000",
+    "open:storybook": "wait-on https://development.playground.mev.bg:6006 && open -a 'Google Chrome' https://development.playground.mev.bg:6006",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@mevbg/nuxt-kit": "^0.1.26",
+    "@nuxtjs/i18n": "^10.0.5",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@pinia/nuxt": "^0.11.2",
+    "@vite-pwa/nuxt": "^1.0.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "colorjs.io": "^0.6.0-alpha.1",
+    "deepmerge": "^4.3.1",
+    "nuxt": "^4.0.3",
+    "nuxt-gtag": "^3.0.3",
+    "nuxt-schema-org": "^5.0.6",
+    "tailwind-merge": "^3.3.1",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.8.0",
+    "@nuxtjs/sitemap": "^7.4.3",
+    "@nuxtjs/storybook": "^8.4.1",
+    "@nuxtjs/stylelint-module": "^5.2.1",
+    "@storybook/addon-a11y": "9.0.5",
+    "@storybook/addon-docs": "9.0.5",
+    "del-cli": "^6.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-storybook": "9.0.5",
+    "husky": "^9.1.7",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-combine-media-query": "^2.0.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-html": "^1.8.0",
+    "postcss-import": "^16.1.1",
+    "postcss-modules": "^6.0.1",
+    "postcss-preset-env": "^10.2.4",
+    "postcss-pxtorem": "^6.1.0",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "storybook-addon-pseudo-states": "9.0.5",
+    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-prettier": "^5.0.3",
+    "vite-svg-loader": "^5.1.0",
+    "wait-on": "^8.0.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "eslint --max-warnings=0"
+    ],
+    "*.{css,vue}": [
+      "stylelint --max-warnings=0"
+    ]
+  },
+  "engines": {
+    "node": ">=22.x",
+    "npm": ">=10.x"
+  },
+  "packageManager": "npm@10.9.2"
+}

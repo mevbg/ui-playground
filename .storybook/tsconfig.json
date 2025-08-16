@@ -1,0 +1,36 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "allowJs": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "target": "ES2020",
+    "module": "ESNext",
+    "paths": {
+      "#storybook": ["."],
+      "#storybook/*": ["./*"],
+      "#root": ["../"],
+      "#root/*": ["../*"],
+      "#server": ["../server"],
+      "#server/*": ["../server/*"],
+      "#design": ["../design"],
+      "#design/*": ["../design/*"],
+      "#public": ["../public"],
+      "#public/*": ["../public/*"],
+      "#core": ["../app/core"],
+      "#core/*": ["../app/core/*"],
+      "#common": ["../app/common"],
+      "#common/*": ["../app/common/*"],
+      "#utils": ["../app/utils"],
+      "#utils/*": ["../app/utils/*"],
+      "#search": ["../app/modules/search"],
+      "#search/*": ["../app/modules/search/*"]
+    }
+  },
+  "include": ["./**/*.ts", "./**/*.tsx", "../**/*.ts", "../**/*.tsx", "../**/*.vue"],
+  "exclude": ["../node_modules", "../.nuxt", "../dist", "../**/*.js", "../**/*.cjs", "../**/*.mjs"]
+}

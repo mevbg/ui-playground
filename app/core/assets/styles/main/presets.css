@@ -1,0 +1,160 @@
+/* =================================================== */
+/* Styles → Main → PRESETS */
+
+/* -------------------------| Box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -------------------------| HTML */
+/* html {} */
+
+/* -------------------------| Body */
+body {
+  overflow-x: hidden;
+  min-height: 100dvh;
+  padding-top: var(--mev-border-width-brand);
+
+  &::after {
+    content: '';
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    width: 100vw;
+    border-top: var(--mev-border-width-brand) solid var(--mev-border-color-red);
+  }
+}
+
+/* -------------------------| Text */
+/* p {} */
+
+/* strong {} */
+
+ul {
+  padding-left: 2em;
+  list-style-position: outside;
+}
+
+/* blockquote {} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* -------------------------| Links */
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* -------------------------| Figures */
+figure {
+  margin: 0;
+}
+
+/* -------------------------| Images */
+/* img {
+  pointer-events: none;
+} */
+
+/* -------------------------| Graphics */
+svg {
+  overflow: initial; /* fix for Safari where part of the graphics is being cropped in the bottom */
+}
+
+/* -------------------------| Form elements */
+/* fieldset {} */
+
+/* [type='checkbox'],
+[type='radio'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+} */
+
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font-family: inherit;
+  letter-spacing: inherit;
+
+  background-color: transparent;
+  outline: none;
+}
+
+/* input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button,
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+input[type='search']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type='search']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Mozilla specific */
+/* input[type='number'] {
+  -moz-appearance: textfield !important;
+} */
+
+/* Change the white to any color ;) */
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+} */
+
+/* input[type='file'] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+} */
+
+/* -------------------------| States */
+:focus {
+  outline: none;
+}
+
+/* -------------------------| Removing highlighting on tap */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

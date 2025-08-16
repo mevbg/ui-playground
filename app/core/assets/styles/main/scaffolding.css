@@ -1,0 +1,36 @@
+/* =================================================== */
+/* Styles → Main → SCAFFOLDING */
+
+/* -------------------------| Layout */
+#playground {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--mev-size-300x400);
+
+  min-height: 100dvh;
+  padding-top: var(--mev-size-300x400);
+}
+
+/* -------------------------| Color */
+body {
+  @apply bg-red50 text-primary-base;
+}
+
+#playground {
+  @apply bg-primary-base;
+}
+
+/* -------------------------| Typography */
+html {
+  font-size: var(--mev-root-font-size);
+
+  -webkit-locale: 'bg';
+}
+
+body {
+  @apply font-sans text-body font-apparat-regular antialiased;
+}
+
+::selection {
+  background: var(--mev-color-background-red-weakest);
+}

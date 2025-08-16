@@ -1,0 +1,15 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+/design/**/*
+/public/assets/
+/public/index.js
+.DS_Store
+.vscode/
+favicons/**/*
+i18n/*

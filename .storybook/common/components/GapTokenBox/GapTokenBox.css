@@ -1,0 +1,35 @@
+.gap-token-box {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  min-height: 10rem;
+  border: 1px solid var(--mev-color-content-primary-inverted);
+  border-radius: var(--tile-card-border-radius);
+}
+
+.gap-token-box__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  flex: 1;
+  align-self: stretch;
+
+  background-color: #9695e1;
+}
+
+.gap-token-box__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 5rem;
+
+  color: var(--mev-color-content-primary-base);
+
+  background-color: var(--mev-color-background-primary-base);
+}

@@ -1,0 +1,21 @@
+.border-token-box {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  min-height: 10rem;
+  border: 1px solid var(--mev-color-content-primary-inverted);
+  border-radius: var(--tile-card-border-radius);
+
+  background-color: transparent;
+}
+
+.border-token-box__object {
+  display: block;
+  width: calc(100% - calc(var(--mev-size-150x200) * 2));
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+}

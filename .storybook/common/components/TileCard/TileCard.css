@@ -1,0 +1,110 @@
+:root {
+  --tile-card-border-radius: 0.8rem 0.8rem 0 0;
+  --tile-card-background-light: #f9f9f9;
+  --tile-card-background-dark: #121212;
+  --tile-card-transparency: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAARGVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAADoAEAAwAAAAEAAQAAoAIABAAAAAEAAAAUoAMABAAAAAEAAAAUAAAAALLd8P0AAAAsSURBVHicY/z//z8DbnDv3j08skx45AiCUc0jQzML/jSkpKREK5tHNQ8ZzQCzGgi/HkmhqgAAAABJRU5ErkJggg==');
+}
+
+:root,
+html.light {
+  --tile-card-background: var(--tile-card-background-light);
+}
+
+html.dark {
+  --tile-card-background: var(--tile-card-background-dark);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --tile-card-background: var(--tile-card-background-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tile-card-background: var(--tile-card-background-dark);
+  }
+}
+
+.tile-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: var(--mev-size-150x200);
+  border: 1px solid var(--mev-color-background-gray-weak);
+  border-radius: 0.8rem;
+
+  background-color: var(--tile-card-background);
+
+  transition: all 0.2s ease;
+}
+
+@media (hover: hover) {
+  .tile-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px var(--mev-color-background-gray-weakest);
+  }
+}
+
+.tile-card-head {
+  flex: 1;
+  margin: calc(var(--mev-size-150x200) * -1) calc(var(--mev-size-150x200) * -1)
+    var(--mev-size-150x200) !important;
+  border-bottom: 1px solid var(--mev-color-background-gray-weak);
+  border-radius: var(--tile-card-border-radius);
+}
+
+.color-card .tile-card-head {
+  flex: none;
+}
+
+.tile-card-body {
+  /* Empty for now */
+}
+
+.tile-card-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tile-card-controllers {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--mev-size-150x200);
+}
+
+h3.tile-card-title {
+  margin: 0 !important;
+  border-bottom: 0;
+  font-family: var(--mev-font-family-sans);
+  font-size: var(--mev-font-size-title);
+}
+
+h3.tile-card-title:not(:last-child) {
+  margin-bottom: 1rem !important;
+}
+
+h4.tile-card-subtitle {
+  overflow: auto;
+  font-family: var(--mev-font-family-sans);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+h4.tile-card-subtitle::-webkit-scrollbar {
+  display: none;
+}
+
+h4.tile-card-subtitle:not(:first-child) {
+  margin-top: 0 !important;
+}
+
+.tile-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: var(--mev-size-300x400) !important;
+}

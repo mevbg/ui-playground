@@ -1,0 +1,41 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+.stylelintcache
+.DS_Store
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.vscode
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# SSL
+.ssl
+*.pem
+*.key
+
+# Favicons
+/public/assets/
+/public/index.js
+
+# Storybook
+/storybook-static
+*storybook.log
+/common/components/elements/_Blank

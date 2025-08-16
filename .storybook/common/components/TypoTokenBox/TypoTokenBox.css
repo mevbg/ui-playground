@@ -1,0 +1,18 @@
+.typo-token-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  min-height: 10rem;
+  padding: var(--mev-size-150x200);
+  border: 1px solid var(--mev-color-content-primary-inverted);
+  border-radius: var(--tile-card-border-radius);
+
+  font-family: var(--mev-font-family-sans) !important;
+  line-height: var(--mev-line-height-120);
+  color: var(--mev-color-content-primary-inverted);
+
+  background-color: var(--mev-color-background-primary-inverted);
+}

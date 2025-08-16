@@ -1,0 +1,70 @@
+/* =================================================== */
+/* Storybook → SCAFFOLDING */
+
+/* -------------------------| Base */
+body {
+  background-color: var(--mev-color-background-primary-base);
+}
+
+/* -------------------------| Playground */
+#playground {
+  position: relative;
+
+  overflow: auto;
+  flex: 1 1 0%;
+  align-items: center;
+  justify-content: flex-start;
+
+  min-height: 100px !important;
+  padding-block: var(--mev-size-300x400);
+
+  background-color: transparent !important;
+}
+
+/* -------------------------| Storybook */
+#storybook-root,
+#storybook-docs {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--mev-size-300x400);
+  min-height: 100dvh;
+}
+
+#storybook-root:empty,
+#storybook-docs:empty {
+  display: none !important;
+}
+
+.sb-show-main {
+  min-height: 100dvh !important;
+}
+
+.sb-show-main,
+.sb-show-main main,
+#storybook-root {
+  display: flex !important;
+  flex-direction: column;
+}
+
+#storybook-root,
+.sb-show-main main {
+  flex: 1;
+}
+
+.sb-main-padded {
+  padding: 0 !important;
+}
+
+/* -------------------------| Pre */
+pre {
+  display: block;
+  width: 100%;
+  padding: 2px 10px;
+  color: white;
+}
+
+/* -------------------------| Colors */
+html.light .dark-colors,
+html.dark .light-colors {
+  display: none;
+}

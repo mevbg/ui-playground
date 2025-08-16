@@ -1,0 +1,70 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
+import merge from 'deepmerge';
+import Blank from './Blank.vue';
+
+type BlankStoryArgs = {
+  // place for argTypes as custom controls
+} & InstanceType<typeof Blank>['$props'];
+
+const StoryTemplate = ({ args, parameters }) => ({
+  render: (args) => {
+    return {
+      components: { Blank },
+      setup() {
+        return { args };
+      },
+      template: `<Blank />`
+    };
+  },
+  args: {
+    ...args
+  },
+  parameters: {
+    ...merge(
+      {
+        docs: {
+          source: {
+            transform: () => `<Blank />`
+          }
+        }
+      },
+      parameters
+    )
+  }
+});
+
+// Meta configuration of component stories
+const meta: Meta<BlankStoryArgs> = {
+  title: 'Components/Blank',
+  component: Blank,
+  argTypes: {},
+  parameters: {
+    actions: {
+      disable: true
+    },
+    docs: {
+      description: {
+        component: `This component is a building block used to display a blank.`
+      }
+    }
+  }
+};
+
+// All component stories
+type Story = StoryObj<BlankStoryArgs>;
+
+export const BasicStory: Story = {
+  name: 'Basic',
+  ...StoryTemplate({
+    args: {},
+    parameters: {
+      docs: {
+        description: {
+          story: `This is the basic look of a blank.`
+        }
+      }
+    }
+  })
+};
+
+export default meta;

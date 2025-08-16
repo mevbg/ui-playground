@@ -1,0 +1,93 @@
+/* =================================================== *|
+/* Storybook → Manager → SCAFFOLDING */
+
+/* -------------------------| Fonts */
+@font-face {
+  font-family: 'Apparat';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Apparat-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Apparat';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/fonts/Apparat-Bold.woff2') format('woff2');
+}
+
+/* -------------------------| Base */
+html {
+  -webkit-locale: 'bg';
+}
+
+/* -------------------------| General */
+div:focus {
+  outline: none;
+}
+
+/* -------------------------| Sidebar */
+.sidebar-container {
+  top: -7px !important;
+}
+
+.sidebar-header > div {
+  margin-right: 0;
+}
+
+/* behind the logo in the sidebar */
+.sidebar-header > div > a {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: 40px;
+  padding: 0;
+  border-radius: 3px;
+
+  background-color: #fff;
+  box-shadow: rgb(210 210 210 / 50%) 0px 1px 5px 0px;
+}
+
+.sidebar-header img {
+  height: 100%;
+}
+
+.search-result-item,
+.sidebar-subheading,
+.sidebar-item {
+  padding-block: 6px !important;
+  font-size: 12px !important;
+  line-height: 1.4;
+}
+
+.search-result-item *,
+.sidebar-subheading *,
+.sidebar-item * {
+  font-size: inherit !important;
+}
+
+.search-result-item svg,
+.sidebar-item svg {
+  margin-top: -1px !important;
+}
+
+.search-result-item--label > div:last-child {
+  font-size: 0.9em !important;
+}
+
+.search-result-recentlyOpened,
+.sidebar-subheading {
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+/* -------------------------| Tooltip */
+div[data-testid='tooltip'] button {
+  &:hover {
+    background: rgba(222, 17, 0, 0.14);
+  }
+}

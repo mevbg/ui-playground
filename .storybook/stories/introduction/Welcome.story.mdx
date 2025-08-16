@@ -1,0 +1,78 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Welcome" />
+
+<section className="sb-unstyled" style={{
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1,
+  width: '100%',
+  height: '100%',
+  padding: 0,
+  textAlign: 'center'
+}}>
+  <div style={{
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  }}>
+    <div style={{ width: '100%' }}>
+      <h1 className="sbdocs-title" style={{ 
+        marginTop: 'var(--mev-size-200x600)',
+        textAlign: 'center',
+        textWrap: 'balance',
+        maxWidth: '50rem',
+        marginInline: 'auto',
+      }}>Playground Design System</h1>
+      <p style={{ 
+        marginTop: 'var(--mev-size-200x600)',
+        fontFamily: 'Apparat, system-ui, sans-serif',
+        fontSize: 'var(--mev-font-size-body)',
+        lineHeight: 'var(--mev-line-height-140)',
+        fontStyle: 100,
+        textAlign: 'center',
+        maxWidth: '60rem',
+        marginInline: 'auto',
+        color: 'var(--mev-color-content-primary-base)'
+      }}>An interactive catalog and documentation of UI components and design tokens, created for the playground.mev.bg web platform.</p>
+    </div>
+
+    <div style={{
+      display: 'flex',
+      flex: 1,
+      alignItems: 'center',
+      marginBlock: 'var(--mev-size-300x400)'
+    }}>
+      <img style={{
+        display: 'block',
+        maxWidth: '25rem',
+        marginInline: 'auto',
+        background: 'var(--mev-color-primitive-white)',
+        borderRadius: 'var(--mev-border-radius-eight)',
+        transform: 'translateY(-10%)'
+      }} width="100%" src="/assets/android-chrome-512x512.png" />
+    </div>
+
+  </div>
+
+  <div style={{ maxWidth: '14rem', width: '100%', marginInline: 'auto' }}>
+    <a
+      href="https://storybook.js.org"
+      target="_blank"
+      style={{
+        display: 'inline-block',
+        width: '100%',
+        padding: '0.5rem 1rem',
+        margin: '0 auto',
+        lineHeight: 0,
+        background: '#fff',
+        borderRadius: '0.3rem',
+        boxShadow: 'rgb(210 210 210 / 50%) 0 0.1rem 0.5rem 0'
+      }}
+    >
+      <img width="100%" src="/storybook-logo.svg" />
+    </a>
+  </div>
+</section>
