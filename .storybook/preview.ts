@@ -26,6 +26,7 @@ import '../app/core/assets/styles/main/scaffolding.css';
 import '../app/core/assets/styles/main/tailwind.css';
 import '../app/core/assets/styles/overwrites/floating-vue.css';
 import '../app/core/assets/styles/overwrites/vue3-toastify.css';
+import '../public/assets/css/font-faces.css';
 import './preview/styles/sbdocs.css';
 import './preview/styles/scaffolding.css';
 
