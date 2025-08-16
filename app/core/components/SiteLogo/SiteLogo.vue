@@ -10,30 +10,18 @@ import LogoSVG from '#core/assets/images/site-logo.svg';
 
 <style module>
 .root {
-  position: relative;
   display: inline-block;
   margin: 3px;
-}
 
-.root::after {
-  content: '';
+  & svg {
+    position: relative;
+    z-index: 1;
+    width: var(--mev-dimensions-site-logo);
+    height: auto;
 
-  position: absolute;
-  z-index: 0;
-  inset: -3px;
-
-  border-radius: 5px;
-
-  background-color: var(--mev-color-primitive-white);
-}
-
-.root svg {
-  position: relative;
-  z-index: 1;
-
-  width: var(--mev-dimensions-site-logo);
-  height: auto;
-
-  background-color: var(--mev-color-primitive-white);
+    & path {
+      fill: var(--mev-color-content-primary-base);
+    }
+  }
 }
 </style>
