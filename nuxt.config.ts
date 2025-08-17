@@ -88,15 +88,15 @@ export default defineNuxtConfig({
   ],
 
   css: [
-    '#core/assets/styles/main/presets.css',
-    '#core/assets/styles/main/scaffolding.css',
-    '#core/assets/styles/overwrites/floating-vue.css',
-    '#core/assets/styles/overwrites/vue3-toastify.css',
     '#public/assets/tokens/css/all.css',
     '#public/assets/css/font-faces.css',
     '#public/assets/css/viewport-scaler.css',
     '#public/assets/css/icons.css',
-    '#public/assets/css/scrollbar.css'
+    '#public/assets/css/scrollbar.css',
+    '#core/assets/styles/main/presets.css',
+    '#core/assets/styles/main/scaffolding.css',
+    '#core/assets/styles/overwrites/floating-vue.css',
+    '#core/assets/styles/overwrites/vue3-toastify.css'
   ],
 
   mevKit: {
