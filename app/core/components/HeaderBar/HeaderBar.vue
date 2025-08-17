@@ -1,7 +1,7 @@
 <template>
   <header :class="[$style.root, 'flex items-center justify-between']">
     <LayoutWrapper class="flex w-full items-center justify-between">
-      <nuxt-link to="/">
+      <nuxt-link to="/" class="block">
         <SiteLogo />
       </nuxt-link>
     </LayoutWrapper>
