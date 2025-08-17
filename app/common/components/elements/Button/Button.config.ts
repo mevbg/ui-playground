@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 
 // Define styles for the Button component
 const ButtonStyles = {
-  base: 'relative border-thick border-solid inline-flex items-center cursor-pointer select-none justify-center rounded-full transition-colors disabled:opacity-50 disabled:pointer-events-none disabled:border-transparent',
+  base: 'relative border-thick border-solid inline-flex items-center cursor-pointer select-none justify-center rounded-full transition-colors disabled:opacity-50 disabled:pointer-events-none disabled:border-transparent leading-100',
   variant: {
     solid: 'border-transparent bg-red50 text-white',
     outlined: 'border-red text-red50 bg-transparent',
