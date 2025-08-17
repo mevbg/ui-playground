@@ -3,7 +3,7 @@
     <Text variant="display" class="text-center">{{ $t('LOCL_SITE_TITLE') }}</Text>
 
     <ConditionalClientOnly :condition="!serverSideSystemScheme">
-      <div class="mt-300x400 flex justify-center gap-300x400">
+      <div class="mt-300x400 flex flex-wrap justify-center gap-300x400">
         <Button
           v-for="(btn, index) in colorSchemeModes"
           :key="index"
