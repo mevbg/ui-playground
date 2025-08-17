@@ -1,6 +1,8 @@
 <template>
   <button :class="classList" :disabled="disabled || loading" @click="handleClick">
+    <GlyphIcon v-if="iconPrefix" class="mr-100x150" :name="iconPrefix" />
     <Text variant="button" :class="['truncate', loading && 'invisible']">{{ label }}</Text>
+    <GlyphIcon v-if="iconSuffix" class="ml-100x150" :name="iconSuffix" />
     <span v-if="loading" :class="$style.loading">
       <Preloader class="text-current" />
     </span>
@@ -12,10 +14,13 @@ import { computed, useCssModule } from 'vue';
 import { cn } from '#utils/classnames.utils';
 import { ButtonDefaultVariants, ButtonVariants } from './Button.config';
 import type { ButtonVariantProps } from './Button.config';
+import type { GlyphIconName } from '#common/components/elements/GlyphIcon/GlyphIcon.config';
 
 const props = withDefaults(
   defineProps<{
     label: string;
+    iconPrefix?: GlyphIconName;
+    iconSuffix?: GlyphIconName;
     variant?: ButtonVariantProps['variant'];
     size?: ButtonVariantProps['size'];
     disabled?: boolean;
@@ -25,7 +30,9 @@ const props = withDefaults(
   {
     variant: ButtonDefaultVariants.variant,
     size: ButtonDefaultVariants.size,
-    stretched: ButtonDefaultVariants.stretched
+    stretched: ButtonDefaultVariants.stretched,
+    iconPrefix: undefined,
+    iconSuffix: undefined
   }
 );
 
@@ -49,6 +56,10 @@ const classList = computed(() => {
 <style module>
 .root {
   max-width: 300px;
+
+  & [data-i] {
+    color: currentColor;
+  }
 }
 
 .loading {

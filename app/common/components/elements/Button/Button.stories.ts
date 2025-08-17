@@ -1,6 +1,7 @@
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
+import { glyphicons } from '../GlyphIcon/GlyphIcon.config';
 import { ButtonDefaultVariants, ButtonStyles } from './Button.config';
 import Button from './Button.vue';
 
@@ -27,6 +28,8 @@ const StoryTemplate = ({ args, parameters }) => ({
       template: `
         <Button 
           :label="args.label"
+          :icon-prefix="args.iconPrefix"
+          :icon-suffix="args.iconSuffix"
           :variant="args.variant"
           :size="args.size"
           :disabled="args.disabled"
@@ -39,6 +42,8 @@ const StoryTemplate = ({ args, parameters }) => ({
   },
   args: {
     label: 'Обнови',
+    iconPrefix: null,
+    iconSuffix: null,
     ...ButtonDefaultVariants,
     ...args
   },
@@ -47,8 +52,13 @@ const StoryTemplate = ({ args, parameters }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { label, variant, size, disabled, loading, stretched } }) =>
-              `<Button label="${label}"${variant !== ButtonDefaultVariants.variant ? ` variant="${variant}"` : ''}${size !== ButtonDefaultVariants.size ? ` size="${size}"` : ''}${disabled ? ` disabled` : ''}${loading ? ` loading` : ''}${stretched ? ` stretched` : ''} />`
+            transform: (
+              code,
+              {
+                args: { label, variant, size, disabled, loading, stretched, iconPrefix, iconSuffix }
+              }
+            ) =>
+              `<Button label="${label}"${variant !== ButtonDefaultVariants.variant ? ` variant="${variant}"` : ''}${size !== ButtonDefaultVariants.size ? ` size="${size}"` : ''}${disabled ? ` disabled` : ''}${loading ? ` loading` : ''}${stretched ? ` stretched` : ''}${iconPrefix ? ` icon-prefix="${iconPrefix}"` : ''}${iconSuffix ? ` icon-suffix="${iconSuffix}"` : ''} />`
           }
         }
       },
@@ -77,6 +87,40 @@ const meta: Meta<ButtonStoryArgs> = {
       control: {
         type: 'text'
       }
+    },
+    iconPrefix: {
+      name: 'Icon Prefix',
+      type: { required: false, name: 'string' },
+      description: 'Defines the prefix glyph icon. It will be rendered before the label.',
+      table: {
+        category: 'Props',
+        type: { summary: glyphicons.join('|') },
+        defaultValue: null,
+        required: false,
+        readonly: false
+      },
+      control: {
+        type: 'select',
+        labels: capitalizeLabels([...glyphicons], 'None')
+      },
+      options: [null, ...glyphicons]
+    },
+    iconSuffix: {
+      name: 'Icon Suffix',
+      type: { required: false, name: 'string' },
+      description: 'Defines the suffix glyph icon. It will be rendered after the label.',
+      table: {
+        category: 'Props',
+        type: { summary: glyphicons.join('|') },
+        defaultValue: null,
+        required: false,
+        readonly: false
+      },
+      control: {
+        type: 'select',
+        labels: capitalizeLabels([...glyphicons], 'None')
+      },
+      options: [null, ...glyphicons]
     },
     variant: {
       name: 'Variant',
