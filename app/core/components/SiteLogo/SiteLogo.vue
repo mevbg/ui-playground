@@ -9,19 +9,37 @@ import LogoSVG from '#core/assets/images/site-logo.svg';
 </script>
 
 <style module>
+:root {
+  --mev-site-logo-ratio: 0.8475;
+  --mev-site-logo-height: calc(var(--mev-dimensions-site-logo) / var(--mev-site-logo-ratio));
+}
+
 .root {
-  display: inline-block;
-  margin: 3px;
+  position: relative;
+  display: block;
+  aspect-ratio: var(--mev-site-logo-ratio);
+  width: var(--mev-dimensions-site-logo);
+}
 
-  & svg {
-    position: relative;
-    z-index: 1;
-    width: var(--mev-dimensions-site-logo);
-    height: auto;
+.root::after {
+  content: '';
 
-    & path {
-      fill: var(--mev-color-content-primary-base);
-    }
-  }
+  position: absolute;
+  z-index: 0;
+  inset: -3px;
+
+  border-radius: 5px;
+
+  background-color: var(--mev-color-primitive-white);
+}
+
+.root svg {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: auto;
+
+  background-color: var(--mev-color-primitive-white);
 }
 </style>
