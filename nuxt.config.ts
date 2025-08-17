@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     '#server': resolve(projectRoot, 'server'),
     '#design': resolve(projectRoot, 'design'),
     '#public': resolve(projectRoot, 'public'),
+    '#storybook': resolve(projectRoot, '.storybook'),
 
     '#core': resolve(projectRoot, 'app/core'),
     '#common': resolve(projectRoot, 'app/common'),
