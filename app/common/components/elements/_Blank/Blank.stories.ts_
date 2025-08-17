@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import Blank from './Blank.vue';
@@ -6,7 +7,7 @@ type BlankStoryArgs = {
   // place for argTypes as custom controls
 } & InstanceType<typeof Blank>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<BlankStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { Blank },

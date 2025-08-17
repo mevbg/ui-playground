@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import { glyphicons } from './GlyphIcon.config';
@@ -7,7 +8,7 @@ type GlyphIconStoryArgs = {
   // place for argTypes as custom controls
 } & InstanceType<typeof GlyphIcon>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<GlyphIconStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { GlyphIcon },
@@ -26,7 +27,8 @@ const StoryTemplate = ({ args, parameters }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { name } }) => `<GlyphIcon name="${name}" />`
+            transform: (code: string, { args: { name } }: { args: GlyphIconStoryArgs }) =>
+              `<GlyphIcon name="${name}" />`
           }
         }
       },
@@ -48,7 +50,7 @@ const meta: Meta<GlyphIconStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: glyphicons.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: true,
         readonly: false
       },

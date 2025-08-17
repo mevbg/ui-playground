@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import { debounce } from '#utils/delays.utils';
 import { capitalize } from '#utils/strings.utils';
@@ -46,7 +47,7 @@ ${notifyFunction}('${label}'${customConfig});
   `;
 };
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<NotificationStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       setup() {
@@ -107,7 +108,10 @@ const StoryTemplate = ({ args, parameters }) => ({
     ...merge(
       {
         docs: {
-          source: { transform: (code, { args }) => PreviewTemplate(args) }
+          source: {
+            transform: (code: string, { args }: { args: NotificationStoryArgs }) =>
+              PreviewTemplate(args)
+          }
         }
       },
       parameters
@@ -298,7 +302,7 @@ export const InfoStory: Story = {
   name: 'Info',
   ...StoryTemplate({
     args: {
-      label: 'В системата има нови имоти.',
+      label: 'В системата има нови данни.',
       type: 'info'
     },
     parameters: {

@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -15,13 +16,13 @@ type ButtonStoryArgs = {
   // place for argTypes as custom controls
 } & InstanceType<typeof Button>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<ButtonStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { Button },
       setup() {
         const handleClick = (event: MouseEvent) => {
-          args.onClick(event);
+          args.onClick?.(event);
         };
         return { args, handleClick };
       },
@@ -42,8 +43,8 @@ const StoryTemplate = ({ args, parameters }) => ({
   },
   args: {
     label: 'Обнови',
-    iconPrefix: null,
-    iconSuffix: null,
+    iconPrefix: undefined,
+    iconSuffix: undefined,
     ...ButtonDefaultVariants,
     ...args
   },
@@ -53,9 +54,11 @@ const StoryTemplate = ({ args, parameters }) => ({
         docs: {
           source: {
             transform: (
-              code,
+              code: string,
               {
                 args: { label, variant, size, disabled, loading, stretched, iconPrefix, iconSuffix }
+              }: {
+                args: ButtonStoryArgs;
               }
             ) =>
               `<Button label="${label}"${variant !== ButtonDefaultVariants.variant ? ` variant="${variant}"` : ''}${size !== ButtonDefaultVariants.size ? ` size="${size}"` : ''}${disabled ? ` disabled` : ''}${loading ? ` loading` : ''}${stretched ? ` stretched` : ''}${iconPrefix ? ` icon-prefix="${iconPrefix}"` : ''}${iconSuffix ? ` icon-suffix="${iconSuffix}"` : ''} />`
@@ -79,8 +82,8 @@ const meta: Meta<ButtonStoryArgs> = {
       description: 'Defines the label of the button.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -95,7 +98,7 @@ const meta: Meta<ButtonStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: glyphicons.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -103,7 +106,7 @@ const meta: Meta<ButtonStoryArgs> = {
         type: 'select',
         labels: capitalizeLabels([...glyphicons], 'None')
       },
-      options: [null, ...glyphicons]
+      options: [undefined, ...glyphicons]
     },
     iconSuffix: {
       name: 'Icon Suffix',
@@ -112,7 +115,7 @@ const meta: Meta<ButtonStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: glyphicons.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -120,7 +123,7 @@ const meta: Meta<ButtonStoryArgs> = {
         type: 'select',
         labels: capitalizeLabels([...glyphicons], 'None')
       },
-      options: [null, ...glyphicons]
+      options: [undefined, ...glyphicons]
     },
     variant: {
       name: 'Variant',
@@ -220,9 +223,7 @@ const meta: Meta<ButtonStoryArgs> = {
         type: {
           summary: 'event'
         },
-        defaultValue: {
-          summary: null
-        }
+        defaultValue: undefined
       }
     }
   },

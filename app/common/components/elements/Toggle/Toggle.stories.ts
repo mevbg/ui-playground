@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -16,8 +17,8 @@ type ToggleStoryArgs = {
 } & InstanceType<typeof Toggle>['$props'];
 
 const PreviewTemplate = (
-  code,
-  { args: { id, name, text, textVariant, checked, disabled, readonly } }
+  code: string,
+  { args: { id, name, text, textVariant, checked, disabled, readonly } }: { args: ToggleStoryArgs }
 ) => {
   const tab = '  ';
   const pickboxTemplate = (sp = '\n') =>
@@ -27,7 +28,7 @@ const PreviewTemplate = (
     : pickboxTemplate();
 };
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<ToggleStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     const [currentArgs, updateArgs] = useArgs();
 
@@ -45,7 +46,7 @@ const StoryTemplate = ({ args, parameters }) => ({
       components: { Toggle },
       setup() {
         const handleChange = (event: Event) => {
-          args.onChange(event);
+          args.onChange?.(event);
           updateArgs({ checked: !args.checked });
         };
         return { args: currentArgs, handleChange };
@@ -98,8 +99,8 @@ const meta: Meta<ToggleStoryArgs> = {
       description: 'Provides the ability to place a text next to the pickbox.',
       table: {
         category: 'Story Controls',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -118,7 +119,7 @@ const meta: Meta<ToggleStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: textVariants.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -136,8 +137,8 @@ const meta: Meta<ToggleStoryArgs> = {
       description: 'Defines the ID attribute of the toggle.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -149,8 +150,8 @@ const meta: Meta<ToggleStoryArgs> = {
       description: 'Defines the name attribute of the toggle.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -220,9 +221,7 @@ const meta: Meta<ToggleStoryArgs> = {
         type: {
           summary: 'event'
         },
-        defaultValue: {
-          summary: null
-        }
+        defaultValue: undefined
       }
     }
   },

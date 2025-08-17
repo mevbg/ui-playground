@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import Preloader from './Preloader.vue';
@@ -6,7 +7,7 @@ type PreloaderStoryArgs = {
   // place for argTypes as custom controls
 } & InstanceType<typeof Preloader>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<PreloaderStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { Preloader },

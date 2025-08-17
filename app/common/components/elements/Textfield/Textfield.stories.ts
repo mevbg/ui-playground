@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -13,7 +14,7 @@ type TextfieldStoryArgs = {
 } & HTMLInputElement &
   InstanceType<typeof Textfield>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<TextfieldStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { Textfield },
@@ -35,9 +36,10 @@ const StoryTemplate = ({ args, parameters }) => ({
     };
   },
   args: {
-    id: null,
-    name: null,
-    type: null,
+    id: '',
+    name: '',
+    // @ts-expect-error - type is specified more than once, so this usage will be overwritten.
+    type: TextfieldDefaultVariants.type,
     placeholder: 'Вашето име',
     autofocus: true,
     centered: false,
@@ -45,15 +47,17 @@ const StoryTemplate = ({ args, parameters }) => ({
     disabled: false,
     ...TextfieldDefaultVariants,
     ...args
-  },
+  } as TextfieldStoryArgs,
   parameters: {
     ...merge(
       {
         docs: {
           source: {
             transform: (
-              code,
-              { args: { type, id, name, placeholder, autofocus, centered, stretched, disabled } }
+              code: string,
+              {
+                args: { type, id, name, placeholder, autofocus, centered, stretched, disabled }
+              }: { args: TextfieldStoryArgs }
             ) => {
               const tab = '  ';
               return `<Textfield${type !== TextfieldDefaultVariants.type ? `\n${tab}type="${type}"` : ''}${id !== null ? `\n${tab}id="${id}"` : ''}${name !== null ? `\n${tab}name="${name}"` : ''}${placeholder ? `\n${tab}placeholder="${placeholder}"` : ''}${autofocus ? `\n${tab}autofocus` : ''}${centered ? `\n${tab}centered` : ''}${stretched ? `\n${tab}stretched` : ''}${disabled ? `\n${tab}disabled` : ''}\n/>`;
@@ -78,8 +82,8 @@ const meta: Meta<TextfieldStoryArgs> = {
       description: 'Defines the ID attribute of the textfield.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: { summary: 'None' },
         required: true,
         readonly: false
       },
@@ -91,8 +95,8 @@ const meta: Meta<TextfieldStoryArgs> = {
       description: 'Defines the name attribute of the textfield.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -121,8 +125,8 @@ const meta: Meta<TextfieldStoryArgs> = {
       description: 'Defines the placeholder of the textfield.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: false,
         readonly: false
       },

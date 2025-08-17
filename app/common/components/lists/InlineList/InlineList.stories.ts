@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import InlineList from './InlineList.vue';
@@ -6,7 +7,7 @@ type InlineListStoryArgs = {
   items: string[];
 } & InstanceType<typeof InlineList>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<InlineListStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { InlineList },
@@ -31,7 +32,7 @@ const StoryTemplate = ({ args, parameters }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { items } }) => {
+            transform: (code: string, { args: { items } }: { args: InlineListStoryArgs }) => {
               const tab = '  ';
               return `<InlineList>${items.map((item) => `\n${tab}<Text as="span">${item}</Text>`).join('')}\n</InlineList>`;
             }
@@ -63,7 +64,7 @@ const meta: Meta<InlineListStoryArgs> = {
         type: {
           summary: 'Array<string>'
         },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },

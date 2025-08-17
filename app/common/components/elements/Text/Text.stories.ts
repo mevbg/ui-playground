@@ -1,6 +1,7 @@
 import type { GlyphIconName } from '#common/components/elements/GlyphIcon/GlyphIcon.config';
 import { glyphicons } from '#common/components/elements/GlyphIcon/GlyphIcon.config';
 import { PickboxStyles } from '#common/components/elements/Pickbox/Pickbox.config';
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels, getTagWrappedLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -15,16 +16,16 @@ const pickboxTypes = Object.keys(PickboxStyles.type) as PickboxTypes[];
 
 type TextStoryArgs = {
   content: string;
-  defaultSlot: string;
-  prefixSlot: string;
-  prefix?: typeof prefixes;
+  defaultSlot?: string;
+  prefixSlot?: string;
+  prefix?: (typeof prefixes)[number];
   glyphIconName?: GlyphIconName;
   pickboxType?: PickboxTypes;
 } & InstanceType<typeof Text>['$props'];
 
 const PreviewTemplate = (
-  code,
-  { args: { variant, as, content, prefix, glyphIconName, pickboxType } }
+  code: string,
+  { args: { variant, as, content, prefix, glyphIconName, pickboxType } }: { args: TextStoryArgs }
 ) => `
   <Text${variant && variant !== TextDefaultVariants.variant ? ` variant="${variant}"` : ''}${as && as !== TextDefaultVariants.as ? ` as="${as}"` : ''}>${
     prefix
@@ -37,7 +38,7 @@ const PreviewTemplate = (
   </Text>
 `;
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<TextStoryArgs> = ({ args, parameters }) => ({
   render: (args) => ({
     components: { Text },
     setup() {
@@ -58,11 +59,11 @@ const StoryTemplate = ({ args, parameters }) => ({
   }),
   args: {
     content: 'Сградата се състои от три входа, три подземни нива с паркоместа и два магазина.',
-    prefix: null,
+    prefix: undefined,
     glyphIconName: 'main',
     pickboxType: 'checkbox',
     variant: TextDefaultVariants.variant,
-    as: null,
+    as: undefined,
     ...args
   },
   parameters: {
@@ -89,8 +90,8 @@ const meta: Meta<TextStoryArgs> = {
       description: 'Defines the content of the heading.',
       table: {
         category: 'Story Controls',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -105,7 +106,7 @@ const meta: Meta<TextStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: prefixes.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -113,7 +114,7 @@ const meta: Meta<TextStoryArgs> = {
         type: 'select',
         labels: capitalizeLabels([...prefixes], 'None') // when prop is not required and not default value is presented
       },
-      options: [null, ...prefixes] // when prop is not required and not default value is presented
+      options: [undefined, ...prefixes] // when prop is not required and not default value is presented
     },
     glyphIconName: {
       name: 'GlyphIcon Name',
@@ -126,7 +127,7 @@ const meta: Meta<TextStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: glyphicons.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -147,7 +148,7 @@ const meta: Meta<TextStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: pickboxTypes.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -183,7 +184,7 @@ const meta: Meta<TextStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: TextTagList.join('|') },
-        defaultValue: { summary: TextDefaultVariants.as },
+        defaultValue: { summary: TextDefaultVariants.as ?? 'None' },
         required: false,
         readonly: false
       },
@@ -191,32 +192,32 @@ const meta: Meta<TextStoryArgs> = {
         type: 'select',
         labels: getTagWrappedLabels([...TextTagList], 'None') // when prop is not required and not default value is presented
       },
-      options: [null, ...TextTagList] // when prop is not required and not default value is presented
+      options: [undefined, ...TextTagList] // when prop is not required and not default value is presented
     },
 
     // Slots
     defaultSlot: {
       name: '<slot />',
       control: {
-        type: null
+        type: undefined
       },
       description: 'Default slot for the text content.',
       table: {
         category: 'Slots',
-        type: null,
-        defaultValue: null
+        type: undefined,
+        defaultValue: undefined
       }
     },
     prefixSlot: {
       name: '<slot name="prefix" />',
       control: {
-        type: null
+        type: undefined
       },
       description: 'Extra slot for a prefix content.',
       table: {
         category: 'Slots',
-        type: null,
-        defaultValue: null
+        type: undefined,
+        defaultValue: undefined
       }
     }
   },

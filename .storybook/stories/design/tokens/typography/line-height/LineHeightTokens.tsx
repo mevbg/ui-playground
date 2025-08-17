@@ -1,12 +1,13 @@
 import { lineHeight as lineHeightTokens } from '#public/assets/tokens/js/static.js';
 import TokensLayout from '#storybook/common/components/TokensLayout/TokensLayout';
+import type { TokenValue } from '#storybook/types';
 import React from 'react';
 import LineHeightCard from './LineHeightCard';
 
 export default function LineHeightTokens() {
   const { none, ...tokens } = Object.fromEntries(
     Object.entries(lineHeightTokens).map(([key, value]) => [key.replace('$', ''), value])
-  );
+  ) as Record<string, TokenValue>;
 
   return (
     <React.Fragment>

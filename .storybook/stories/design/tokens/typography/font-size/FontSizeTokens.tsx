@@ -1,5 +1,6 @@
 import fontSizeTokens from '#design/tokens/typo/font-size.tokens.js';
 import TokensLayout from '#storybook/common/components/TokensLayout/TokensLayout';
+import type { TokenValue } from '#storybook/types';
 import React from 'react';
 import FontSizeCard from './FontSizeCard';
 
@@ -9,7 +10,7 @@ export default function FontSizeTokens() {
     Object.entries(rest)
       .filter(([key]) => key !== '$type')
       .map(([key, value]) => [key.replace('$', ''), value])
-  );
+  ) as Record<string, TokenValue>;
 
   return (
     <React.Fragment>

@@ -1,8 +1,13 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import SiteLogo from './SiteLogo.vue';
 
-const StoryTemplate = ({ args, parameters }) => ({
+type SiteLogoStoryArgs = {
+  // place for argTypes as custom controls
+} & InstanceType<typeof SiteLogo>['$props'];
+
+const StoryTemplate: StoryTemplateFn<SiteLogoStoryArgs> = ({ args, parameters }) => ({
   render: (args) => ({
     components: { SiteLogo },
     setup() {

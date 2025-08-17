@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 
@@ -9,7 +10,7 @@ type TooltipStoryArgs = {
 const src = 'https://i.pravatar.cc/1200?img=11';
 const label = 'Иван Иванов';
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<TooltipStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       setup() {
@@ -36,7 +37,7 @@ const StoryTemplate = ({ args, parameters }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { label } }) => {
+            transform: (code: string, { args: { label } }: { args: TooltipStoryArgs }) => {
               const tab = '  ';
               return `<ProfilePhoto\n${tab}v-tooltip="${label}"\n${tab}src="${src}"\n/>`;
             }

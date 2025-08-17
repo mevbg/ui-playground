@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -13,10 +14,10 @@ const roundings = Object.keys(PanelStyles.rounding) as PanelRoundings[];
 const shadows = Object.keys(PanelStyles.shadow) as PanelShadows[];
 
 type PanelStoryArgs = {
-  defaultSlot: unknown;
+  defaultSlot?: unknown;
 } & InstanceType<typeof Panel>['$props'];
 
-const StoryTemplate = ({ args, parameters, globals = {} }) => ({
+const StoryTemplate: StoryTemplateFn<PanelStoryArgs> = ({ args, parameters, globals = {} }) => ({
   render: (args) => {
     return {
       components: { Panel },
@@ -43,7 +44,10 @@ const StoryTemplate = ({ args, parameters, globals = {} }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { background, rounding, shadow } }) =>
+            transform: (
+              code: string,
+              { args: { background, rounding, shadow } }: { args: PanelStoryArgs }
+            ) =>
               `<Panel${background !== PanelDefaultVariants.background ? ` background="${background}"` : ''}${rounding !== PanelDefaultVariants.rounding ? ` rounding="${rounding}"` : ''}${shadow !== PanelDefaultVariants.shadow ? ` shadow="${shadow}"` : ''}>Content of the panel</Panel>`
           }
         }
@@ -118,13 +122,13 @@ const meta: Meta<PanelStoryArgs> = {
     defaultSlot: {
       name: '<slot />',
       control: {
-        type: null
+        type: undefined
       },
       description: 'Default slot for the content of the panel.',
       table: {
         category: 'Slots',
-        type: null,
-        defaultValue: null
+        type: undefined,
+        defaultValue: undefined
       }
     }
   },

@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -15,7 +16,7 @@ type ProfilePhotoStoryArgs = {
 const src = 'https://i.pravatar.cc/1200?img=11';
 const name = 'Иван Иванов';
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<ProfilePhotoStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { ProfilePhoto },
@@ -38,7 +39,10 @@ const StoryTemplate = ({ args, parameters }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { size, src, alt, title } }) => {
+            transform: (
+              code: string,
+              { args: { size, src, alt, title } }: { args: ProfilePhotoStoryArgs }
+            ) => {
               const tab = '  ';
               return `<ProfilePhoto\n${tab}src="${src}"${tab}${size ? `\n${tab}size="${size}"` : ''}${alt ? `\n${tab}alt="${alt}"` : ''}${title ? `\n${tab}title="${title}"` : ''}\n/>`;
             }
@@ -62,8 +66,8 @@ const meta: Meta<ProfilePhotoStoryArgs> = {
       description: 'Defines the src of the profile photo.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -78,7 +82,7 @@ const meta: Meta<ProfilePhotoStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: sizes.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -86,7 +90,7 @@ const meta: Meta<ProfilePhotoStoryArgs> = {
         type: 'inline-radio',
         labels: capitalizeLabels([...sizes], 'None') // when prop is not required and not default value is presented
       },
-      options: [null, ...sizes] // when prop is not required and not default value is presented
+      options: [undefined, ...sizes] // when prop is not required and not default value is presented
     },
     alt: {
       name: 'alt',
@@ -95,7 +99,7 @@ const meta: Meta<ProfilePhotoStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: 'string' },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },
@@ -110,7 +114,7 @@ const meta: Meta<ProfilePhotoStoryArgs> = {
       table: {
         category: 'Props',
         type: { summary: 'string' },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },

@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
@@ -11,9 +12,13 @@ const textVariants = Object.keys(TextStyles.variant) as TextVariants[];
 type TextlinkStoryArgs = {
   text: string;
   textVariant?: TextVariantProps['variant'];
+  prefix?: boolean;
 } & InstanceType<typeof Textlink>['$props'];
 
-const PreviewTemplate = (code, { args: { prefix, text, textVariant } }) => {
+const PreviewTemplate = (
+  code: string,
+  { args: { prefix, text, textVariant } }: { args: TextlinkStoryArgs }
+) => {
   return `
    <Textlink>
       <a href="https://google.com" target="_blank">
@@ -23,7 +28,7 @@ const PreviewTemplate = (code, { args: { prefix, text, textVariant } }) => {
   `;
 };
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<TextlinkStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     return {
       components: { Textlink },
@@ -73,8 +78,8 @@ const meta: Meta<TextlinkStoryArgs> = {
       description: 'Defines the text of the textlink.',
       table: {
         category: 'Story Controls',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -93,7 +98,7 @@ const meta: Meta<TextlinkStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: textVariants.join('|') },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },

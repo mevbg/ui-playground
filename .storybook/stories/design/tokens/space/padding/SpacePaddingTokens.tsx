@@ -1,5 +1,6 @@
 import sizeTokens from '#design/tokens/size/index.js';
 import TokensLayout from '#storybook/common/components/TokensLayout/TokensLayout';
+import type { TokenValue } from '#storybook/types';
 import React from 'react';
 import SpacePaddingCard from './SpacePaddingCard';
 
@@ -8,7 +9,7 @@ export default function SpacePaddingTokens() {
     Object.entries(sizeTokens.size)
       .filter(([key]) => key !== '$type')
       .map(([key, value]) => [key.replace('$', ''), value])
-  );
+  ) as Record<string, TokenValue>;
 
   return (
     <React.Fragment>

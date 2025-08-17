@@ -1,3 +1,4 @@
+import type { StoryTemplateFn } from '#storybook/types';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import { useArgs } from 'storybook/preview-api';
@@ -8,14 +9,14 @@ type ChipStoryArgs = {
   // place for argTypes as custom controls
 } & InstanceType<typeof Chip>['$props'];
 
-const StoryTemplate = ({ args, parameters }) => ({
+const StoryTemplate: StoryTemplateFn<ChipStoryArgs> = ({ args, parameters }) => ({
   render: (args) => {
     const [currentArgs, updateArgs] = useArgs();
     return {
       components: { Chip },
       setup() {
         const handleClick = (event: MouseEvent) => {
-          args.onClick(event);
+          args.onClick?.(event);
           updateArgs({ selected: !args.selected });
         };
         return { args: currentArgs, handleClick };
@@ -34,7 +35,10 @@ const StoryTemplate = ({ args, parameters }) => ({
       {
         docs: {
           source: {
-            transform: (code, { args: { label, selected, readonly } }) =>
+            transform: (
+              code: string,
+              { args: { label, selected, readonly } }: { args: ChipStoryArgs }
+            ) =>
               `<Chip label="${label}"${selected ? ` selected` : ''}${readonly ? ` readonly` : ''} />`
           }
         }
@@ -56,8 +60,8 @@ const meta: Meta<ChipStoryArgs> = {
       description: 'Defines the label of the chip.',
       table: {
         category: 'Props',
-        type: null,
-        defaultValue: null,
+        type: { summary: 'string' },
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -114,9 +118,7 @@ const meta: Meta<ChipStoryArgs> = {
         type: {
           summary: 'event'
         },
-        defaultValue: {
-          summary: null
-        }
+        defaultValue: undefined
       }
     }
   },
