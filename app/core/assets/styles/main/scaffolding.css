@@ -1,14 +1,16 @@
 /* =================================================== */
 /* Styles → Main → SCAFFOLDING */
 
+/* -------------------------| Root */
+:root {
+  --mev-top-offset: var(--mev-size-150x200);
+}
+
 /* -------------------------| Layout */
 #playground {
   display: flex;
   flex-direction: column;
-  row-gap: var(--mev-size-300x400);
-
-  min-height: 100dvh;
-  padding-top: var(--mev-size-300x400);
+  min-height: calc(100dvh - var(--era-border-width-brand));
 }
 
 /* -------------------------| Color */
