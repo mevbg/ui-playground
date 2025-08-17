@@ -10,11 +10,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useCssModule } from 'vue';
-import { cn } from '#utils/classnames.utils';
-import { ButtonDefaultVariants, ButtonVariants } from './Button.config';
-import type { ButtonVariantProps } from './Button.config';
 import type { GlyphIconName } from '#common/components/elements/GlyphIcon/GlyphIcon.config';
+import { cn } from '#utils/classnames.utils';
+import { computed, useCssModule } from 'vue';
+import type { ButtonVariantProps } from './Button.config';
+import { ButtonDefaultVariants, ButtonVariants } from './Button.config';
 
 const props = withDefaults(
   defineProps<{

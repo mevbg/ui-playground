@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '#utils/classnames.utils';
+import { computed } from 'vue';
 import { ToggleDefaultVariants, ToggleVariants } from './Toggle.config';
 
 const props = withDefaults(

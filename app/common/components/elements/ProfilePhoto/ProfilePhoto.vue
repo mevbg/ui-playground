@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useCssModule } from 'vue';
 import { cn } from '#utils/classnames.utils';
+import { computed, useCssModule } from 'vue';
 import type { ProfilePhotoVariantProps } from './ProfilePhoto.config';
 import { ProfilePhotoVariants } from './ProfilePhoto.config';
 

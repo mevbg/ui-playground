@@ -4,9 +4,9 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { homepage, themeColor } from '#root/package.json';
 import { PREFIX } from '#core/constants';
+import { homepage, themeColor } from '#root/package.json';
+import { useI18n } from 'vue-i18n';
 
 const { ENV_NAME, BASE_URL } = useAppConfig();
 const { t, locale } = useI18n();

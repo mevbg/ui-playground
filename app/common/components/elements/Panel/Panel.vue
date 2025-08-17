@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '#utils/classnames.utils';
-import { PanelDefaultVariants, PanelVariants } from './Panel.config';
+import { computed } from 'vue';
 import type { PanelVariantProps } from './Panel.config';
+import { PanelDefaultVariants, PanelVariants } from './Panel.config';
 
 const props = withDefaults(
   defineProps<{

@@ -11,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
 import { cn } from '#utils/classnames.utils';
-import { TextfieldDefaultVariants, TextfieldVariants } from './Textfield.config';
+import { computed, useAttrs } from 'vue';
 import type { TextfieldVariantProps } from './Textfield.config';
+import { TextfieldDefaultVariants, TextfieldVariants } from './Textfield.config';
 
 defineOptions({
   inheritAttrs: false

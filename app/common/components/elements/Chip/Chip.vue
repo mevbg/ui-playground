@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '#utils/classnames.utils';
+import { computed } from 'vue';
 import { ChipDefaultVariants, ChipVariants } from './Chip.config';
 
 const props = withDefaults(

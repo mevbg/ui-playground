@@ -6,10 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { cn } from '#utils/classnames.utils';
-import { PickboxDefaultVariants, PickboxVariants } from './Pickbox.config';
 import CheckSVG from '#common/assets/images/checkmark.svg';
+import { cn } from '#utils/classnames.utils';
+import { computed } from 'vue';
+import { PickboxDefaultVariants, PickboxVariants } from './Pickbox.config';
 
 const props = withDefaults(
   defineProps<{

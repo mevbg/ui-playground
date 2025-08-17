@@ -11,11 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '#utils/classnames.utils';
-import type { TextTag, TextVariantProps } from './Text.config';
 import { capitalize } from '#utils/strings.utils';
-import { TextTypeDefaultTag, TextDefaultVariants, TextVariants } from './Text.config';
+import { computed } from 'vue';
+import type { TextTag, TextVariantProps } from './Text.config';
+import { TextDefaultVariants, TextTypeDefaultTag, TextVariants } from './Text.config';
 
 const props = withDefaults(
   defineProps<{
