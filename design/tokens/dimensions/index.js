@@ -3,7 +3,7 @@ export default {
     $type: 'dimensions',
     
     checkInput: { $value: '16px' },
-    siteLogo: { $value: { min: '50px', max: '70px' } },
+    siteLogo: { $value: { min: '34px', max: '70px' } },
     toggle: { thumb: { $value: '0.8333333333em' } },
     profilePhoto: {
       l: { $value: { min: '160px', max: '160px' } },
