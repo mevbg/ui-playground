@@ -10,11 +10,10 @@ import { computed } from 'vue';
 import { cn } from '#utils/classnames.utils';
 import { PickboxDefaultVariants, PickboxVariants } from './Pickbox.config';
 import CheckSVG from '#common/assets/images/checkmark.svg';
-import type { PickboxVariantProps } from './Pickbox.config';
 
 const props = withDefaults(
   defineProps<{
-    type: PickboxVariantProps['type'];
+    type: 'checkbox' | 'radio';
     id: string;
     name: string;
     checked?: boolean;

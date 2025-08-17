@@ -11,7 +11,10 @@ export function flattenObject(obj: Record<string, unknown>, prefix = '', separat
 
       if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
         // Recursively flatten nested objects
-        Object.assign(flattened, flattenObject(obj[key], newKey, separator));
+        Object.assign(
+          flattened,
+          flattenObject(obj[key] as Record<string, unknown>, newKey, separator)
+        );
       } else {
         // Add primitive values directly
         flattened[newKey] = obj[key];
@@ -43,7 +46,7 @@ export function flattenNestedTokens(obj: Record<string, unknown>) {
           if (Object.prototype.hasOwnProperty.call(value, nestedKey)) {
             // Combine parent key with nested key in camelCase
             const combinedKey = key + capitalize(nestedKey);
-            flattened[combinedKey] = value[nestedKey];
+            flattened[combinedKey] = (value as Record<string, unknown>)[nestedKey];
           }
         }
       }

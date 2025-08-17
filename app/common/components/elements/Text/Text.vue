@@ -30,7 +30,14 @@ const props = withDefaults(
 
 const classList = computed(() => cn(TextVariants({ variant: props.variant })));
 
-const tag = computed(() => props.as || TextTypeDefaultTag[capitalize(props.variant)] || 'span');
+const tag = computed(
+  () =>
+    props.as ||
+    (props.variant
+      ? (TextTypeDefaultTag as Record<string, string>)[capitalize(props.variant)]
+      : null) ||
+    'span'
+);
 </script>
 
 <style module>
