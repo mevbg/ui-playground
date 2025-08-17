@@ -1,7 +1,7 @@
 import type { GlyphIconName } from '#common/components/elements/GlyphIcon/GlyphIcon.config';
 import { glyphicons } from '#common/components/elements/GlyphIcon/GlyphIcon.config';
 import { PickboxStyles } from '#common/components/elements/Pickbox/Pickbox.config';
-import { capitalizeLabels, getTagWrappedLabels } from '#storybook/utils/stories.utils';
+import { capitalizeLabels, getTagWrappedLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import { TextDefaultVariants, TextStyles, TextTagList } from './Text.config';

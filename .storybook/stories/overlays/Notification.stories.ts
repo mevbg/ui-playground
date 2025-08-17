@@ -1,4 +1,4 @@
-import { capitalizeLabels } from '#storybook/utils/stories.utils';
+import { capitalizeLabels } from '#storybook/utils';
 import { debounce } from '#utils/delays.utils';
 import { capitalize } from '#utils/strings.utils';
 import {

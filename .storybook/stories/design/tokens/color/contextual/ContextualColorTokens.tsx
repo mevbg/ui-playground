@@ -1,6 +1,6 @@
 import * as Colors from '#design/constants/colors/contextual-colors.constants.js';
 import ArticleWrapper from '#storybook/common/components/ArticleWrapper/ArticleWrapper';
-import { getStorybookColorData, orderColorGroupsByTitle } from '#storybook/utils/colors.utils';
+import { getStorybookColorData, orderColorGroupsByTitle } from '#storybook/utils';
 import { toTitleCase } from '#utils/strings.utils';
 import React, { useState } from 'react';
 import ColorTokens from '../ColorTokens';

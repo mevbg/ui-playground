@@ -1,4 +1,4 @@
-import { capitalizeLabels } from '#storybook/utils/stories.utils';
+import { capitalizeLabels } from '#storybook/utils';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import merge from 'deepmerge';
 import { useArgs } from 'storybook/preview-api';

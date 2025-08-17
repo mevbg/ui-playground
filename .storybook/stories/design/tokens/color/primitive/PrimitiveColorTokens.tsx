@@ -1,6 +1,6 @@
 import * as PrimitiveColors from '#design/constants/colors/primitive-colors.constants.js';
 import ArticleWrapper from '#storybook/common/components/ArticleWrapper/ArticleWrapper';
-import { getStorybookColorData, orderColorGroupsByTitle } from '#storybook/utils/colors.utils';
+import { getStorybookColorData, orderColorGroupsByTitle } from '#storybook/utils';
 import React from 'react';
 import ColorTokens from '../ColorTokens';
 
