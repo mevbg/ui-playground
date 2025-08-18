@@ -5,8 +5,14 @@
   /* -------------------------| Base */
   /* .Toastify {} */
 
+  /* -------------------------| Container */
+  & .Toastify__toast-container {
+    margin: var(--mev-size-200x600);
+  }
+
   /* -------------------------| Toast */
   & .Toastify__toast {
+    max-width: calc(100vw - (var(--mev-size-200x600) * 2));
     border-radius: var(--mev-border-radius-twelve);
 
     font-family: var(--mev-font-family-sans);
