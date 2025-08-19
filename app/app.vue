@@ -8,7 +8,7 @@ import { PREFIX } from '#core/constants';
 import { homepage, themeColor } from '#root/package.json';
 import { useI18n } from 'vue-i18n';
 
-const { ENV_NAME, BASE_URL } = useAppConfig();
+const { PROD_ENV, BASE_URL } = useAppConfig();
 const { t, locale } = useI18n();
 const { className: colorSchemeClassName } = useColorScheme();
 const { classes: clientClasses } = useUserAgentData();
@@ -31,7 +31,7 @@ useHead({
     locale,
     homepage,
     themeColor,
-    robots: ENV_NAME === 'production',
+    robots: PROD_ENV,
     baseUrl: BASE_URL,
     siteTitle: t('LOCL_SITE_TITLE'),
     siteDescription: t('LOCL_SITE_DESCRIPTION'),
