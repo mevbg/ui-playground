@@ -151,6 +151,8 @@ export default defineNuxtConfig({
   },
 
   appConfig: {
+    DEV_ENV,
+    PROD_ENV,
     ENV_NAME: process.env.ENV_NAME,
     DOMAIN_NAME: process.env.DOMAIN_NAME,
     HOST_NAME: DEV_ENV ? DEV_HOST_NAME : process.env.HOST_NAME,
