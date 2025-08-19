@@ -154,6 +154,11 @@ input:-webkit-autofill:active {
   outline: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--mev-color-primitive-red50);
+  outline-offset: 3px;
+}
+
 /* -------------------------| Removing highlighting on tap */
 * {
   -webkit-tap-highlight-color: transparent;
