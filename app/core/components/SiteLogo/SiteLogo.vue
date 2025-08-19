@@ -1,6 +1,6 @@
 <template>
   <span :class="$style.root">
-    <LogoSVG />
+    <LogoSVG role="img" aria-hidden="true" />
   </span>
 </template>
 
