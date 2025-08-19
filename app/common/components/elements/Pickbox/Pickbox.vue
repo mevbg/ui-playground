@@ -89,6 +89,7 @@ const classList = computed(() => {
 }
 
 .box > svg {
+  scale: 1.75;
   width: 100%;
   fill: var(--mev-color-primitive-red50);
 }
