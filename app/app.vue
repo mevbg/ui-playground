@@ -8,7 +8,7 @@ import { PREFIX } from '#core/constants';
 import { homepage, themeColor } from '#root/package.json';
 import { useI18n } from 'vue-i18n';
 
-const { PROD_ENV, BASE_URL } = useAppConfig();
+const { DEV_ENV, PROD_ENV, BASE_URL } = useAppConfig();
 const { t, locale } = useI18n();
 const { className: colorSchemeClassName } = useColorScheme();
 const { classes: clientClasses } = useUserAgentData();
@@ -59,4 +59,12 @@ useNetworkListener({
   offlineMessage: t('LOCL_INTERNET_IS_MISSING'),
   onlineMessage: t('LOCL_INTERNET_IS_BACK')
 });
+
+if (DEV_ENV) {
+  onMounted(() => {
+    document.addEventListener('focusin', (event) => {
+      console.info('New focused element:', event.target);
+    });
+  });
+}
 </script>
