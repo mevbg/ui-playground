@@ -24,7 +24,7 @@ export default function Card({
   className
 }: CardProps) {
   return (
-    <React.Fragment>
+    <>
       <div className={`tile-card ${className}`}>
         <div className="tile-card-head">{header}</div>
 
@@ -44,6 +44,6 @@ export default function Card({
           {controllers && <div className="tile-card-controllers">{controllers}</div>}
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

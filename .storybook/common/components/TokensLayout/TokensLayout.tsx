@@ -16,7 +16,7 @@ export default function TokensLayout({
   CardComponent: React.ComponentType<CardComponentProps>;
 }) {
   return (
-    <React.Fragment>
+    <>
       <div className="sb-unstyled">
         <ArticleWrapper title={title}>
           <p>{description}</p>
@@ -29,6 +29,6 @@ export default function TokensLayout({
           })}
         </TileGrid>
       </div>
-    </React.Fragment>
+    </>
   );
 }

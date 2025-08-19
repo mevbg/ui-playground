@@ -3,7 +3,6 @@ import TileCard from '#storybook/common/components/TileCard/TileCard';
 import TypoTokenBox from '#storybook/common/components/TypoTokenBox/TypoTokenBox';
 import type { FixedTokenCardProps } from '#storybook/types/CardProps.ts';
 import { toKebabCase } from '#utils/strings.utils';
-import React from 'react';
 
 export default function FontWeightCard({ name, item }: FixedTokenCardProps) {
   const details: KeyValuePairType[] = [
@@ -22,7 +21,7 @@ export default function FontWeightCard({ name, item }: FixedTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={
           <TypoTokenBox
@@ -33,6 +32,6 @@ export default function FontWeightCard({ name, item }: FixedTokenCardProps) {
         title={name}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

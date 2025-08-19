@@ -51,7 +51,7 @@ export default function ColorCard({ color }) {
   };
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         className="color-card"
         header={
@@ -97,6 +97,6 @@ export default function ColorCard({ color }) {
         }
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

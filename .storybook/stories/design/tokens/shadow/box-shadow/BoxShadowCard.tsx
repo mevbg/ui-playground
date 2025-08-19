@@ -2,7 +2,6 @@ import BoxShadowTokenBox from '#storybook/common/components/BoxShadowTokenBox/Bo
 import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair/KeyValuePair';
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import type { FixedTokenCardProps } from '#storybook/types/CardProps';
-import React from 'react';
 
 export default function BoxShadowCard({ name, item }: FixedTokenCardProps) {
   const details: KeyValuePairType[] = [
@@ -21,7 +20,7 @@ export default function BoxShadowCard({ name, item }: FixedTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={
           <BoxShadowTokenBox
@@ -34,6 +33,6 @@ export default function BoxShadowCard({ name, item }: FixedTokenCardProps) {
         title={name}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

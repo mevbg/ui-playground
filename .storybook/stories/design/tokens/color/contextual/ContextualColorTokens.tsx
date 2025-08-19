@@ -2,7 +2,7 @@ import * as Colors from '#design/constants/colors/contextual-colors.constants.js
 import ArticleWrapper from '#storybook/common/components/ArticleWrapper/ArticleWrapper';
 import { getStorybookColorData, orderColorGroupsByTitle } from '#storybook/utils';
 import { toTitleCase } from '#utils/strings.utils';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ColorTokens from '../ColorTokens';
 
 const tabs = Object.keys(Colors).map((tab) => toTitleCase(tab));
@@ -62,7 +62,7 @@ export default function ContextualColorTokens() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <div className="sb-unstyled">
         <ArticleWrapper title="Contextual Color Tokens">
           <p>
@@ -127,6 +127,6 @@ export default function ContextualColorTokens() {
           }
         `}</style>
       </div>
-    </React.Fragment>
+    </>
   );
 }

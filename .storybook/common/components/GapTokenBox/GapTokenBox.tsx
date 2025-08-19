@@ -8,7 +8,7 @@ interface GapTokenBoxProps {
 
 export default function GapTokenBox({ className, style }: GapTokenBoxProps) {
   return (
-    <React.Fragment>
+    <>
       <div className={`gap-token-box ${className}`}>
         <div className="gap-token-box__grid" style={style}>
           <div className="gap-token-box__cell">Cell</div>
@@ -17,6 +17,6 @@ export default function GapTokenBox({ className, style }: GapTokenBoxProps) {
           <div className="gap-token-box__cell">Cell</div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

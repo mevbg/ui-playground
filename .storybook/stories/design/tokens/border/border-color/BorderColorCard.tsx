@@ -4,7 +4,6 @@ import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import type { FixedTokenCardProps } from '#storybook/types/CardProps.ts';
 import { toKebabCase } from '#utils/strings.utils';
-import React from 'react';
 
 export default function BorderColorCard({ name, item }: FixedTokenCardProps) {
   const details: KeyValuePairType[] = [
@@ -23,7 +22,7 @@ export default function BorderColorCard({ name, item }: FixedTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={
           <BorderTokenBox
@@ -38,6 +37,6 @@ export default function BorderColorCard({ name, item }: FixedTokenCardProps) {
         title={name}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

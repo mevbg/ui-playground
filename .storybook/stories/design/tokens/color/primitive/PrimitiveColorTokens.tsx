@@ -1,7 +1,7 @@
+/** @jsxImportSource react */
 import * as PrimitiveColors from '#design/constants/colors/primitive-colors.constants.js';
 import ArticleWrapper from '#storybook/common/components/ArticleWrapper/ArticleWrapper';
 import { getStorybookColorData, orderColorGroupsByTitle } from '#storybook/utils';
-import React from 'react';
 import ColorTokens from '../ColorTokens';
 
 const data = orderColorGroupsByTitle(getStorybookColorData(PrimitiveColors, 'primitive'), [
@@ -12,7 +12,7 @@ const data = orderColorGroupsByTitle(getStorybookColorData(PrimitiveColors, 'pri
 
 export default function PrimitiveColorTokens() {
   return (
-    <React.Fragment>
+    <>
       <div className="sb-unstyled">
         <ArticleWrapper title="Primitive Color Tokens">
           <p>
@@ -25,6 +25,6 @@ export default function PrimitiveColorTokens() {
 
         <ColorTokens data={data} />
       </div>
-    </React.Fragment>
+    </>
   );
 }

@@ -2,7 +2,6 @@ import BorderTokenBox from '#storybook/common/components/BorderTokenBox/BorderTo
 import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair/KeyValuePair';
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import type { FixedTokenCardProps } from '#storybook/types/CardProps.ts';
-import React from 'react';
 
 export default function BorderRadiusCard({ name, item }: FixedTokenCardProps) {
   const details: KeyValuePairType[] = [
@@ -21,7 +20,7 @@ export default function BorderRadiusCard({ name, item }: FixedTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <style>{`
         .border-radius-card-${name} {
           width: ${name === 'full' ? '20rem' : '7rem'};
@@ -35,6 +34,6 @@ export default function BorderRadiusCard({ name, item }: FixedTokenCardProps) {
         title={name}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

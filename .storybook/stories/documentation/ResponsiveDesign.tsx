@@ -1,9 +1,10 @@
+/** @jsxImportSource react */
+
 import ArticleWrapper from '#storybook/common/components/ArticleWrapper/ArticleWrapper';
-import React from 'react';
 
 export default function ResponsiveDesign() {
   return (
-    <React.Fragment>
+    <>
       <div className="sb-unstyled">
         <ArticleWrapper title="Responsive Design">
           <p>
@@ -278,6 +279,6 @@ export default function ResponsiveDesign() {
           </ul>
         </ArticleWrapper>
       </div>
-    </React.Fragment>
+    </>
   );
 }

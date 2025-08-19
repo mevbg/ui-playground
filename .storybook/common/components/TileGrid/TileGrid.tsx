@@ -7,8 +7,8 @@ interface TileGridProps {
 
 export default function TileGrid({ children }: TileGridProps) {
   return (
-    <React.Fragment>
+    <>
       <div className="tile-grid">{children}</div>
-    </React.Fragment>
+    </>
   );
 }

@@ -1,11 +1,11 @@
+/** @jsxImportSource react */
 import { icons } from '#design/configs/icons.config.js';
 import ArticleWrapper from '#storybook/common/components/ArticleWrapper/ArticleWrapper';
 import { IconGallery, IconItem } from '@storybook/addon-docs/blocks';
-import React from 'react';
 
 export default function GlyphTokens() {
   return (
-    <React.Fragment>
+    <>
       <div className="sb-unstyled">
         <ArticleWrapper title="Iconography Tokens">
           <p>
@@ -24,6 +24,6 @@ export default function GlyphTokens() {
           ))}
         </IconGallery>
       </div>
-    </React.Fragment>
+    </>
   );
 }

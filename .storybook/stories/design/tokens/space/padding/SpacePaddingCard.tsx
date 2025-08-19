@@ -3,7 +3,6 @@ import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair
 import SpaceTokenBox from '#storybook/common/components/SpaceTokenBox/SpaceTokenBox';
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import type { FluidTokenCardProps } from '#storybook/types/CardProps.ts';
-import React from 'react';
 
 export default function SpacePaddingCard({ name, item }: FluidTokenCardProps) {
   const size =
@@ -31,7 +30,7 @@ export default function SpacePaddingCard({ name, item }: FluidTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={
           <SpaceTokenBox text="Padding" style={{ padding: `var(--${PREFIX}-size-${name})` }} />
@@ -40,6 +39,6 @@ export default function SpacePaddingCard({ name, item }: FluidTokenCardProps) {
         subtitle={size}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

@@ -3,7 +3,6 @@ import GapTokenBox from '#storybook/common/components/GapTokenBox/GapTokenBox';
 import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair/KeyValuePair';
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import type { FluidTokenCardProps } from '#storybook/types/CardProps.ts';
-import React from 'react';
 
 export default function SpaceGapCard({ name, item }: FluidTokenCardProps) {
   const size =
@@ -23,13 +22,13 @@ export default function SpaceGapCard({ name, item }: FluidTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={<GapTokenBox style={{ gap: `var(--${PREFIX}-size-${name})` }} />}
         title={name}
         subtitle={size}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

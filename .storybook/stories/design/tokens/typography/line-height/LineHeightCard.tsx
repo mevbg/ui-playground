@@ -2,7 +2,6 @@ import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import TypoTokenBox from '#storybook/common/components/TypoTokenBox/TypoTokenBox';
 import type { FixedTokenCardProps } from '#storybook/types/CardProps.ts';
-import React from 'react';
 
 export default function LineHeightCard({ name, item }: FixedTokenCardProps) {
   const details: KeyValuePairType[] = [
@@ -21,7 +20,7 @@ export default function LineHeightCard({ name, item }: FixedTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={
           <TypoTokenBox
@@ -32,6 +31,6 @@ export default function LineHeightCard({ name, item }: FixedTokenCardProps) {
         title={name}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

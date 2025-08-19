@@ -13,10 +13,10 @@ export default function TypoTokenBox({
   style
 }: TypoTokenBoxProps) {
   return (
-    <React.Fragment>
+    <>
       <div className={`typo-token-box ${className}`} style={style}>
         {text}
       </div>
-    </React.Fragment>
+    </>
   );
 }

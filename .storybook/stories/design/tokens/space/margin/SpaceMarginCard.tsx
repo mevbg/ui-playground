@@ -3,7 +3,6 @@ import type { KeyValuePairType } from '#storybook/common/components/KeyValuePair
 import SpaceTokenBox from '#storybook/common/components/SpaceTokenBox/SpaceTokenBox';
 import TileCard from '#storybook/common/components/TileCard/TileCard';
 import type { FluidTokenCardProps } from '#storybook/types/CardProps.ts';
-import React from 'react';
 
 export default function SpaceMarginCard({ name, item }: FluidTokenCardProps) {
   const size =
@@ -31,13 +30,13 @@ export default function SpaceMarginCard({ name, item }: FluidTokenCardProps) {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <TileCard
         header={<SpaceTokenBox text="Margin" style={{ margin: `var(--${PREFIX}-size-${name})` }} />}
         title={name}
         subtitle={size}
         details={details}
       />
-    </React.Fragment>
+    </>
   );
 }

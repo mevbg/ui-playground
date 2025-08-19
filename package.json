@@ -29,7 +29,7 @@
     "dev": "nuxt dev & npm run open:app & npm run open:storybook",
     "generate:ssl": "del-cli .ssl && mkdir .ssl && cd .ssl && mkcert development.playground.mev.bg && cd ..",
     "lint:prettier": "prettier --check .",
-    "lint:types": "echo \"\\033[96mChecking TypeScript types…\" && npx nuxi typecheck && echo \"\\033[92mNo TypeScript errors were found.\" && echo \"\\033[39m\"",
+    "lint:types": "echo \"\\033[96mChecking TypeScript types…\" && npx vue-tsc --noEmit --excludeDirectories .storybook && echo \"\\033[92mNo TypeScript errors were found.\" && echo \"\\033[39m\"",
     "lint:scripts": "echo \"\\033[93mLinting scripts…\" && eslint --ext \".js,.vue\" . && echo \"\\033[92mNo errors were found in the scripts.\" && echo \"\\033[39m\"",
     "lint:styles": "echo \"\\033[95mLinting styles…\" && stylelint --fix \"**/*.{css,vue}\" && echo \"\\033[92mNo errors were found in the styles.\" && echo \"\\033[39m\"",
     "lint:all": "npm run lint:types && npm run lint:scripts && npm run lint:styles && npm run lint:prettier",

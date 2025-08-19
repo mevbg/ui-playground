@@ -13,12 +13,12 @@ export default function SpaceTokenBox({
   style
 }: SpaceTokenBoxProps) {
   return (
-    <React.Fragment>
+    <>
       <div className={`space-token-box ${className}`}>
         <div className="space-token-box__content" style={style}>
           <div className="space-token-box__content-text">{text}</div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

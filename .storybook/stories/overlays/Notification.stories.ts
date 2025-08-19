@@ -99,7 +99,7 @@ const StoryTemplate: StoryTemplateFn<NotificationStoryArgs> = ({ args, parameter
     };
   },
   args: {
-    label: null,
+    label: '',
     type: toastifyDefaultType,
     ...toastifyDefaultConfig,
     ...args
@@ -130,7 +130,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'string' },
-        defaultValue: null,
+        defaultValue: undefined,
         required: true,
         readonly: false
       },
@@ -199,7 +199,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'number' },
-        defaultValue: { summary: toastifyDefaultConfig.autoClose.toString() },
+        defaultValue: { summary: (toastifyDefaultConfig.autoClose || '').toString() },
         required: false,
         readonly: false
       },
@@ -214,7 +214,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'boolean' },
-        defaultValue: { summary: toastifyDefaultConfig.pauseOnHover.toString() },
+        defaultValue: { summary: (toastifyDefaultConfig.pauseOnHover || '').toString() },
         required: false,
         readonly: false
       },
@@ -229,7 +229,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'boolean' },
-        defaultValue: { summary: toastifyDefaultConfig.closeButton.toString() },
+        defaultValue: { summary: (toastifyDefaultConfig.closeButton || '').toString() },
         required: false,
         readonly: false
       },
@@ -244,7 +244,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'boolean' },
-        defaultValue: { summary: toastifyDefaultConfig.closeOnClick.toString() },
+        defaultValue: { summary: (toastifyDefaultConfig.closeOnClick || '').toString() },
         required: false,
         readonly: false
       },
@@ -259,7 +259,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'boolean' },
-        defaultValue: { summary: toastifyDefaultConfig.hideProgressBar.toString() },
+        defaultValue: { summary: (toastifyDefaultConfig.hideProgressBar || '').toString() },
         required: false,
         readonly: false
       },
@@ -274,7 +274,7 @@ const meta: Meta<NotificationStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'boolean' },
-        defaultValue: { summary: toastifyDefaultConfig.pauseOnFocusLoss.toString() },
+        defaultValue: { summary: (toastifyDefaultConfig.pauseOnFocusLoss || '').toString() },
         required: false,
         readonly: false
       },

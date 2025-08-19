@@ -13,7 +13,7 @@ addons.register('ColorSchemeAddon', () => {
       // panelPosition: 'bottom',
       // enableShortcuts: true,
       // showToolbar: true,
-      theme: projectTheme({ base: colorScheme }),
+      theme: projectTheme({ base: colorScheme as 'light' | 'dark' }),
       // selectedPanel: 'storybook/html/panel',
       initialActive: 'sidebar',
       sidebar: {

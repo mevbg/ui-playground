@@ -60,7 +60,7 @@ const meta: Meta<TooltipStoryArgs> = {
       table: {
         category: 'Story Controls',
         type: { summary: 'string' },
-        defaultValue: null,
+        defaultValue: undefined,
         required: false,
         readonly: false
       },

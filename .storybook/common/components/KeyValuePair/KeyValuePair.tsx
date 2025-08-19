@@ -1,8 +1,25 @@
+/** @jsxImportSource react */
 import type { TokenValue } from '#storybook/types/Tokens.ts';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CheckmarkIcon from '../CheckmarkIcon/CheckmarkIcon';
 import CopyIcon from '../CopyIcon/CopyIcon';
 import './KeyValuePair.css';
+
+// Helper function to extract string value from TokenValue
+const getStringValue = (value: TokenValue): string => {
+  if (typeof value === 'string') {
+    return value;
+  }
+  if (typeof value === 'object' && '$value' in value) {
+    if (typeof value.$value === 'string') {
+      return value.$value;
+    }
+    if (typeof value.$value === 'object') {
+      return `${value.$value.min} - ${value.$value.max}`;
+    }
+  }
+  return String(value);
+};
 
 export type KeyValuePairType = {
   label: string;
@@ -23,25 +40,25 @@ export default function KeyValuePair({ label, values }: KeyValuePairType) {
   };
 
   return (
-    <React.Fragment>
+    <>
       <div className="key-value-pair">
         <label>{label}</label>
         {values.map((value, index) => (
           <div key={index} className="code-container">
             <button
               className="copy-button"
-              onClick={() => handleCopy(value, index)}
+              onClick={() => handleCopy(getStringValue(value), index)}
               title={copiedIndex === index ? 'Copied!' : 'Copy to clipboard'}
-              aria-label={`Copy ${value} to clipboard`}
+              aria-label={`Copy ${getStringValue(value)} to clipboard`}
             >
               {copiedIndex === index ? <CheckmarkIcon /> : <CopyIcon />}
             </button>
             <div className="code-viewport">
-              <code title={value}>{value}</code>
+              <code title={getStringValue(value)}>{getStringValue(value)}</code>
             </div>
           </div>
         ))}
       </div>
-    </React.Fragment>
+    </>
   );
 }

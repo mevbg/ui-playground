@@ -1,13 +1,12 @@
-import { create } from 'storybook/theming';
+import { create, type ThemeVarsPartial } from 'storybook/theming';
 import { color } from '../public/assets/tokens/js/static.js';
 
 // https://storybook.js.org/docs/configure/user-interface/theming
-export default (props) => {
+export default (props: ThemeVarsPartial) => {
   return create({
     // Typography
     fontBase: 'Apparat, system-ui, sans-serif',
     fontCode: 'ui-monospace, monospace',
-    fontSize: '12px',
 
     // Brand
     brandImage: '/assets/android-chrome-512x512.png',
