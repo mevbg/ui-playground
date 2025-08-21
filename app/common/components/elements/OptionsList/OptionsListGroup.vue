@@ -57,7 +57,7 @@ onKeyStroke('ArrowUp', (e) => {
   });
 });
 
-onKeyStroke('Enter', (e) => {
+onKeyStroke(['Enter', ' '], (e) => {
   if (props.options.length === 0 || !isListActive()) return;
   e.preventDefault();
   const currentOption = props.options[focusedIndex.value];

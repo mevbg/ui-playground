@@ -4,6 +4,8 @@
       :id="id"
       :name="name"
       type="checkbox"
+      v-bind="$attrs"
+      :tabindex="!(disabled || readonly) ? 0 : -1"
       :checked="checked"
       :disabled="disabled || readonly"
     />
@@ -18,6 +20,12 @@
 import { cn } from '#utils/classnames.utils';
 import { computed } from 'vue';
 import { ToggleDefaultVariants, ToggleVariants } from './Toggle.config';
+
+// defineOptions({
+//   inheritAttrs: false
+// });
+
+// const attrs = useAttrs();
 
 const props = withDefaults(
   defineProps<{
@@ -57,6 +65,11 @@ const classList = computed(() => {
   --thumb-offset: 0.1666666667em;
   --stage-width: calc(var(--mev-dimensions-toggle-thumb) * 2 + var(--thumb-offset) * 2);
   --stage-height: calc(var(--mev-dimensions-toggle-thumb) + var(--thumb-offset) * 2);
+
+  &:focus-within {
+    outline: 2px solid var(--mev-color-primitive-red50);
+    outline-offset: 3px;
+  }
 }
 
 .root input {
@@ -85,6 +98,11 @@ const classList = computed(() => {
   opacity: 0.5;
 }
 
+.root,
+.toggle {
+  border-radius: var(--mev-border-radius-full);
+}
+
 .toggle {
   cursor: inherit;
 
@@ -93,7 +111,6 @@ const classList = computed(() => {
   width: var(--stage-width);
   height: var(--stage-height);
   padding: var(--thumb-offset);
-  border-radius: var(--mev-border-radius-full);
 
   transition: background-color 0.2s ease-in-out;
 }
