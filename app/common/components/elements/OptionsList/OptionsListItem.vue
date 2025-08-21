@@ -1,5 +1,5 @@
 <template>
-  <span role="option" :class="classList" @click="handlePress">
+  <span ref="listItemRef" role="option" :class="classList" @click="handlePress">
     <span class="relative block px-400x500 py-150x200">
       <CheckSVG :class="$style.checkmark" />
       {{ text }}
@@ -12,6 +12,7 @@
 import CheckSVG from '#common/assets/images/checkmark.svg';
 import ChevronSVG from '#common/assets/images/chevron.svg';
 import { cn } from '#utils/classnames.utils';
+import { onKeyStroke } from '@vueuse/core';
 import { computed, useCssModule } from 'vue';
 import type { OptionsListItemProps } from './OptionsList.types';
 import { OptionsListItemDefaultVariants, OptionsListItemVariants } from './OptionsListItem.config';
@@ -22,8 +23,23 @@ const props = withDefaults(defineProps<OptionsListItemProps>(), {
   options: undefined
 });
 
+const listItemRef = ref<HTMLElement>();
+
+onKeyStroke(
+  'ArrowRight',
+  (event: KeyboardEvent) => {
+    if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey || !props.options?.length)
+      return;
+
+    event.preventDefault();
+
+    emit('press', event);
+  },
+  { target: listItemRef }
+);
+
 const emit = defineEmits<{
-  (name: 'press', event: MouseEvent): void;
+  (name: 'press', event: Event): void;
 }>();
 
 const handlePress = (event: MouseEvent) => {
