@@ -117,8 +117,14 @@ const classList = computed(() => {
 
 /* Disabled state */
 
-.disabled svg {
-  fill: var(--mev-color-content-primary-base);
+.disabled {
+  > * {
+    @apply opacity-50;
+  }
+
+  svg {
+    fill: var(--mev-color-content-primary-base);
+  }
 }
 
 /* Hover state */

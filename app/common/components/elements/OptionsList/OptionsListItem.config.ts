@@ -10,7 +10,7 @@ const OptionsListItemStyles = {
   },
   disabled: {
     false: 'cursor-pointer',
-    true: 'pointer-events-none opacity-50'
+    true: 'pointer-events-none'
   }
 };
 
