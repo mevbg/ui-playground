@@ -8,7 +8,7 @@
   >
     <OptionsListItem
       v-for="(option, index) in options"
-      :key="option.value"
+      :key="index"
       v-bind="option"
       :tabindex="index === focusedIndex ? 0 : -1"
       role="option"
