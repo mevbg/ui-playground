@@ -65,14 +65,6 @@ const classList = computed(() => {
   position: relative;
 }
 
-.root:hover > span {
-  background-color: var(--list-item-bg-black);
-}
-
-.root:active > span {
-  background-color: var(--list-item-bg-red);
-}
-
 /* Checkmark */
 
 .checkmark {
@@ -127,5 +119,21 @@ const classList = computed(() => {
 
 .disabled svg {
   fill: var(--mev-color-content-primary-base);
+}
+
+/* Hover state */
+
+@media all and (hover: hover) {
+  .root:hover > span {
+    background-color: var(--list-item-bg-black);
+  }
+}
+
+/* Active state */
+
+@media all {
+  .root:active > span {
+    background-color: var(--list-item-bg-red);
+  }
 }
 </style>
