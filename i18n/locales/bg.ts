@@ -13,4 +13,5 @@ export default {
   LOCL_INTERNET_IS_BACK: 'Отново имате връзка с интернет.',
 
   LOCL_LOOK_ON_THE_MAP: 'Виж на картата',
+  LOCL_COLOR_SCHEME: 'Цветова схема'
 };
