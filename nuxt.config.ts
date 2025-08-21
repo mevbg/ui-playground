@@ -25,7 +25,7 @@ const projectRoot = resolve(__dirname, '.');
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: '2025-08-21',
 
   app: {
     rootId: 'root'
