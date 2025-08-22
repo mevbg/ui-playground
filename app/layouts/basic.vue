@@ -2,7 +2,7 @@
   <div id="playground" tabindex="-1">
     <HeaderBar :class="$style.header" />
 
-    <main class="z-1 relative" style="height: 200vh">
+    <main class="z-1 relative">
       <LayoutWrapper>
         <slot />
       </LayoutWrapper>

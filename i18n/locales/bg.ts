@@ -9,9 +9,17 @@ export default {
   LOCL_SITE_KEYWORDS: 'Playground, UI, Mev',
   LOCL_SITE_OWNER: 'Martin Metodiev',
 
+  // Network connection
   LOCL_INTERNET_IS_MISSING: 'В момента нямате връзка с интернет.',
   LOCL_INTERNET_IS_BACK: 'Отново имате връзка с интернет.',
 
-  LOCL_LOOK_ON_THE_MAP: 'Виж на картата',
-  LOCL_COLOR_SCHEME: 'Цветова схема'
+  // Color scheme
+  LOCL_COLOR_SCHEME_MODE_CHANGE: 'Смяна на цветовия режим',
+  LOCL_COLOR_SCHEME_MODES: 'Цветови режими',
+  LOCL_COLOR_SCHEME_MODE_LIGHT: 'Светъл',
+  LOCL_COLOR_SCHEME_MODE_DARK: 'Тъмен',
+  LOCL_COLOR_SCHEME_MODE_SYSTEM: 'Системен',
+
+  // Others
+  LOCL_LOOK_ON_THE_MAP: 'Виж на картата'
 };

@@ -29,17 +29,16 @@ import LogoSVG from '#core/assets/images/site-logo.svg';
   inset: -3px;
 
   border-radius: 5px;
-
-  background-color: var(--mev-color-primitive-white);
 }
 
 .root svg {
   position: relative;
   z-index: 1;
-
   width: 100%;
   height: auto;
 
-  background-color: var(--mev-color-primitive-white);
+  > path:first-child {
+    fill: var(--mev-color-content-primary-base);
+  }
 }
 </style>

@@ -1,13 +1,28 @@
 /* =================================================== */
 /* Overwrites → FloatingVue */
 
-.playground {
-  & .v-popper__popper .v-popper__inner {
+.mev {
+  & .v-popper--theme-tooltip .v-popper__inner {
     color: var(--mev-color-content-primary-inverted);
     background-color: var(--mev-color-background-primary-inverted);
   }
 
   & .v-popper--theme-tooltip .v-popper__arrow-outer {
     border-color: var(--mev-color-background-primary-inverted);
+  }
+
+  & .v-popper--theme-dropdown .v-popper__inner {
+    color: var(--mev-color-content-primary-base);
+    background-color: var(--mev-color-background-primary-base);
+  }
+
+  & .v-popper--theme-dropdown .v-popper__arrow-inner {
+    border-color: var(--mev-color-background-primary-base);
+  }
+}
+
+@media (hover: none) {
+  .mev .v-popper--theme-tooltip {
+    display: none !important;
   }
 }
