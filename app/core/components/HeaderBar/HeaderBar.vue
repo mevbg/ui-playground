@@ -1,13 +1,15 @@
 <template>
   <header :class="$style.root">
     <LayoutWrapper class="flex w-full items-center justify-between">
-      <span />
+      <div class="flex-1" />
 
       <nuxt-link to="/" class="block" aria-label="Начална страница">
         <SiteLogo />
       </nuxt-link>
 
-      <ColorSchemeController />
+      <div class="flex flex-1 justify-end">
+        <ColorSchemeController />
+      </div>
     </LayoutWrapper>
   </header>
 </template>
