@@ -48,7 +48,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@mevbg/nuxt-kit": "^0.2.0",
+    "@mevbg/nuxt-kit": "^0.3.0",
     "@nuxtjs/i18n": "^10.0.6",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@pinia/nuxt": "^0.11.2",
@@ -72,7 +72,7 @@
     "@storybook/addon-a11y": "^9.0.17",
     "@storybook/addon-docs": "^9.0.17",
     "del-cli": "^6.0.0",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "eslint-plugin-storybook": "^9.0.17",
     "husky": "^9.1.7",
     "postcss-combine-duplicated-selectors": "^10.0.3",
@@ -81,7 +81,7 @@
     "postcss-html": "^1.8.0",
     "postcss-import": "^16.1.1",
     "postcss-modules": "^6.0.1",
-    "postcss-preset-env": "^10.2.4",
+    "postcss-preset-env": "^10.3.0",
     "postcss-pxtorem": "^6.1.0",
     "prettier-plugin-organize-imports": "^4.2.0",
     "prettier-plugin-tailwindcss": "^0.6.14",

@@ -103,7 +103,7 @@ export default defineNuxtConfig({
   mevKit: {
     designEssentials: { buildPath: './public/assets', prefix, generators },
     colorScheme: {
-      default: DEFAULT_COLOR_SCHEME
+      primaryScheme: DEFAULT_COLOR_SCHEME
     }
   },
 

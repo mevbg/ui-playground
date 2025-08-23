@@ -10,7 +10,7 @@ import { useI18n } from 'vue-i18n';
 
 const { DEV_ENV, PROD_ENV, BASE_URL } = useAppConfig();
 const { t, locale } = useI18n();
-const { className: colorSchemeClassName } = useColorScheme();
+const { currentClassName: colorSchemeClassName } = useColorScheme();
 const { classes: clientClasses } = useUserAgentData();
 
 useHead({
